@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 1240 320" role="img" aria-label="Saunter">
+  <title>Saunter</title>
+
+  <!-- SAUNTER wordmark — transitional serif, generous tracking, navy -->
+  <text x="620" y="210"
+        font-family="'Aptos Serif', Georgia, 'Times New Roman', serif"
+        font-weight="700"
+        font-size="200"
+        letter-spacing="20"
+        text-anchor="middle"
+        fill="#0E1F3D">SAUNTER</text>
+
+  <!-- Two-tone wave underneath: brass accent (top) + navy (bottom) -->
+
+  <!-- Lighter brass wave - top -->
+  <path d="M 220 275
+           C 360 256, 490 246, 620 272
+           S 880 308, 1020 270
+           C 1012 280, 880 318, 690 292
+           S 400 270, 260 292
+           S 215 285, 220 275 Z"
+        fill="#A77A28" opacity="0.55" />
+
+  <!-- Darker navy wave - bottom (the dominant brand stroke) -->
+  <path d="M 200 305
+           C 360 282, 500 268, 620 292
+           S 900 340, 1040 292
+           C 1032 304, 900 348, 700 318
+           S 380 295, 240 318
+           S 195 312, 200 305 Z"
+        fill="#0E1F3D" />
+</svg>

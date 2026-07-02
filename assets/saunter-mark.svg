@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Saunter">
+  <title>Saunter</title>
+  <rect width="200" height="200" rx="32" fill="#0E1F3D" />
+  <text x="100" y="105" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="78" letter-spacing="-2" fill="#FFFFFF" text-anchor="middle">S</text>
+  <path d="M 30 145
+           C 60 130, 90 125, 120 142
+           S 165 165, 175 144
+           C 168 152, 130 175, 95 160
+           S 50 152, 30 145 Z"
+        fill="#5B82B5" opacity="0.85" />
+  <path d="M 25 162
+           C 60 148, 100 142, 140 158
+           S 175 175, 180 160
+           C 175 168, 130 188, 90 175
+           S 40 168, 25 162 Z"
+        fill="#FFFFFF" />
+</svg>
