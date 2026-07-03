@@ -246,6 +246,7 @@
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;}
   @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px;}}
   .foot-brand img{height:44px;margin-bottom:16px;}
+  .foot-brand .foot-tag{font-family:var(--disp);font-weight:600;font-size:18px;line-height:1.25;letter-spacing:-.01em;color:#EAD9B8;max-width:22ch;margin:0 0 12px;}
   .foot-brand p{font-family:var(--ui);font-size:14px;color:#7A88A2;max-width:32ch;line-height:1.6;margin:0;}
   .foot-col h5{font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5f6d86;margin:0 0 14px;}
   .foot-col a{display:block;font-family:var(--ui);font-size:15px;color:#AEB9CD;text-decoration:none;margin-bottom:10px;}
