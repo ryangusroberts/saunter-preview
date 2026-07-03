@@ -322,11 +322,15 @@
 .bench .tag{font-family:var(--ui);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--brass);margin-top:12px;display:block;}
 
 /* ---------- consultant roster (LDNA Certified Practitioners) ---------- */
-.roster{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 18px;margin-top:34px;}
-@media(max-width:900px){.roster{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:520px){.roster{grid-template-columns:repeat(2,1fr);}}
-.rmember{text-align:center;}
-.rmember .av{width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:top;margin:0 auto 12px;background:var(--cream-2);border:3px solid #fff;box-shadow:var(--shadow);display:block;}
-.rmember .avf{width:92px;height:92px;border-radius:50%;margin:0 auto 12px;background:var(--navy);color:#F0D9AE;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:800;font-size:28px;box-shadow:var(--shadow);}
-.rmember h5{font-family:var(--disp);font-weight:700;font-size:15.5px;color:var(--ink);margin:0 0 3px;}
-.rmember span{font-family:var(--ui);font-weight:600;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);}
+.roster{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+@media(max-width:760px){.roster{grid-template-columns:1fr;}}
+.rmember{display:grid;grid-template-columns:54px 1fr;gap:15px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);}
+.rmember .av{width:54px;height:54px;border-radius:50%;object-fit:cover;object-position:top;background:var(--cream-2);display:block;}
+.rmember .avf{width:54px;height:54px;border-radius:50%;background:var(--navy);color:#F0D9AE;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:800;font-size:18px;}
+.rmember h5{font-family:var(--disp);font-weight:700;font-size:16px;color:var(--ink);margin:0;line-height:1.1;}
+.rmember .rrole{font-family:var(--ui);font-weight:600;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);display:block;margin:3px 0 7px;}
+.rmember p{font-family:var(--ui);font-size:12.5px;line-height:1.5;color:var(--ink-2);margin:0;}
+
+/* ---------- about: Saunter Certified credential badge ---------- */
+.person .cred{display:inline-flex;align-items:center;gap:7px;font-family:var(--ui);font-weight:700;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--grad-warm);padding:5px 12px;border-radius:999px;margin:4px 0 12px;}
+.person .cred::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;}
