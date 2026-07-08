@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Founder Architecture Dashboard — The Saunter Group</title>
+<style>
+  :root{--navy:#1F3864;--blue:#2E75B6;--ink:#233;--muted:#6B7280;--line:#E4E8EF;--bg:#F4F6FA;--card:#fff;
+    --crit:#C0392B;--high:#B8860B;--supp:#7A828E;--green:#2E7D46;
+    --critbg:#FBE9E7;--highbg:#FBF3DC;--suppbg:#EEF1F5;
+    --shadow:0 1px 3px rgba(20,40,80,.08),0 1px 2px rgba(20,40,80,.05);}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  .app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}
+  .side{background:#fff;border-right:1px solid var(--line);padding:22px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .logo{width:38px;height:38px;border-radius:9px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+  .brand b{color:var(--navy);font-size:15px;line-height:1.1}.brand span{color:var(--muted);font-size:11px}
+  .pill{margin:14px 0 16px;background:#EEF3FB;color:var(--navy);font-weight:700;font-size:12.5px;border-radius:8px;padding:9px 12px}
+  .ring-wrap{display:flex;flex-direction:column;align-items:center;margin:6px 0}
+  .ring-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+  .side h4{color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin:16px 0 8px}
+  .navrow{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;border-radius:8px;font-size:13px;color:#374151}
+  .navrow .sc{font-weight:800;font-size:12.5px;color:var(--navy)}
+  .btn{margin-top:14px;width:100%;border:1px solid var(--line);background:#fff;color:var(--navy);font-weight:600;padding:9px;border-radius:8px;cursor:pointer;font-size:13px}
+  .btn:hover{background:#F3F6FB}
+  .main{padding:26px 30px 60px;max-width:1120px}
+  .topbar{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+  h1{font-size:25px;color:var(--navy);margin:0 0 3px}.sub{color:var(--muted);font-size:13px}
+  .nameinput{border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:14px;color:var(--navy);font-weight:600;min-width:200px}
+  .next{margin:18px 0 4px;border-radius:10px;padding:13px 16px;font-weight:600;font-size:14.5px;background:var(--critbg);color:var(--crit)}
+  .next.done{background:#E9F6EE;color:var(--green)}
+  .bar{height:12px;border-radius:8px;background:#E7EBF2;margin:16px 0 4px;overflow:hidden}
+  .bar .fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--navy));border-radius:8px;transition:width .35s}
+  .bar-scale{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:18px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--muted);border-radius:10px;padding:12px 14px;box-shadow:var(--shadow)}
+  .card .t{color:var(--muted);font-size:12.5px}.card .v{font-weight:800;font-size:22px;color:var(--navy);margin-top:2px}
+  .card .v small{font-size:12px;font-weight:600;color:var(--muted)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-top:22px}
+  .panel h3{margin:0 0 2px;color:var(--navy);font-size:16px}.panel .hint{color:var(--muted);font-size:12.5px;margin-bottom:10px}
+  .radar-wrap{display:flex;justify-content:center}
+  .legend{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle}
+  .stage{margin-top:10px}
+  .stage h4{color:var(--navy);font-size:14.5px;margin:16px 0 6px;padding-bottom:6px;border-bottom:2px solid #EEF1F6;display:flex;justify-content:space-between}
+  .stage h4 .p{font-size:12.5px;color:var(--muted);font-weight:600}
+  .item{display:flex;gap:11px;align-items:flex-start;padding:9px 6px;border-radius:8px;cursor:pointer;border-left:4px solid transparent}
+  .item:hover{background:#F7F9FC}
+  .item.crit{border-left-color:var(--crit)}.item.high{border-left-color:var(--high)}.item.supp{border-left-color:var(--supp)}
+  .item .box{width:20px;height:20px;border:2px solid #C4CBD6;border-radius:5px;flex:0 0 auto;margin-top:1px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:800}
+  .item.done .box{background:var(--green);border-color:var(--green)}
+  .item.done .txt{text-decoration:line-through;color:var(--muted)}
+  .num{font-weight:800;margin-right:6px}
+  .tag{font-size:10px;font-weight:800;padding:1.5px 7px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .tag.crit{background:var(--critbg);color:var(--crit)}.tag.high{background:var(--highbg);color:#8a6600}.tag.supp{background:var(--suppbg);color:var(--supp)}
+  .txt{font-size:14px}.dom{color:var(--muted);font-size:11.5px}
+  .foot{color:var(--muted);font-size:11.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px;line-height:1.5}
+  @media(max-width:900px){.app{grid-template-columns:1fr}.side{position:static;height:auto}.kpis{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="logo">SG</div><div><b>The Saunter Group</b><br><span>Founder Architecture</span></div></div>
+    <div class="pill">The Founder Architecture Method</div>
+    <div class="ring-wrap"><svg id="ring" width="132" height="132" viewBox="0 0 132 132"></svg><div class="ring-label">Complete</div></div>
+    <h4>Stages</h4>
+    <div id="navstages"></div>
+    <button class="btn" onclick="resetAll()">Reset all</button>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><h1><span id="hname">Your Venture</span> — Founder Architecture</h1>
+      <div class="sub">Your progress through the 40 tasks of The Founder Architecture Method</div></div>
+      <input class="nameinput" id="bizname" placeholder="Your business name" oninput="setName(this.value)"/>
+    </div>
+
+    <div class="next" id="nextbanner"></div>
+    <div class="bar"><div class="fill" id="fill" style="width:0%"></div></div>
+    <div class="bar-scale"><span>Start</span><span>Idea → traction</span><span>Scale-ready</span></div>
+
+    <div class="kpis">
+      <div class="card" id="kOverall"><div class="t">Overall complete</div><div class="v" id="vOverall">0<small>%</small></div></div>
+      <div class="card"><div class="t">Tasks done</div><div class="v" id="vTasks">0<small>/40</small></div></div>
+      <div class="card" id="kCrit" style="border-left-color:var(--crit)"><div class="t">Critical done</div><div class="v" id="vCrit">0<small>/14</small></div></div>
+      <div class="card"><div class="t">Current stage</div><div class="v" id="vStage" style="font-size:15px">Stage 0</div></div>
+    </div>
+
+    <div class="panel">
+      <h3>Progress by stage</h3>
+      <div class="hint">How far you are through each stage. The dashed ring is complete (100%).</div>
+      <div class="radar-wrap"><svg id="radar" width="440" height="400" viewBox="0 0 440 400"></svg></div>
+      <div class="legend">
+        <span><span class="dot" style="background:var(--crit)"></span>Critical — never skip</span>
+        <span><span class="dot" style="background:var(--high)"></span>High</span>
+        <span><span class="dot" style="background:var(--supp)"></span>Supporting</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>The 40 tasks</h3>
+      <div class="hint">Check each task as you complete it. Work top to bottom, and clear the red (critical) tasks in a stage before leaning on the next.</div>
+      <div id="tasklist"></div>
+    </div>
+
+    <div class="foot">
+      <b>The Saunter Group, LLC.</b> The Founder Architecture Method is proprietary intellectual property of Vertical Consulting, LLC, used under license.
+      When your foundation is in place and you want a deeper diagnostic, that is where The Saunter Group can help.
+      <br>© 2026. Original work; does not reproduce any third-party framework.
+    </div>
+  </main>
+</div>
+
+<script>
+const STAGES=[
+ {key:"Foundation",short:"Found.",name:"Stage 0 · Readiness & Foundation",tasks:[
+   [1,"Inventory your expertise, unfair advantages & assets","HIGH","Strategy"],
+   [2,"Calculate your runway & walkaway number","CRITICAL","Financial"],
+   [3,"Assess risk tolerance, time & constraints honestly","HIGH","Leadership"],
+   [4,"Define why-this / why-now & non-negotiables","HIGH","Strategy"],
+   [5,"Establish a founder operating rhythm","SUPPORTING","Leadership"],
+   [6,"Line up mentors & honest advisors","SUPPORTING","Leadership"]]},
+ {key:"Problem",short:"Problem",name:"Stage 1 · Problem & Market",tasks:[
+   [7,"Surface problems where you have insight or access","HIGH","Strategy"],
+   [8,"Screen problems for pain, frequency & willingness to pay","HIGH","Strategy"],
+   [9,"Commit to a single problem worth solving","CRITICAL","Strategy"],
+   [10,"Define the specific customer & job to be done","CRITICAL","GTM"],
+   [11,"Draft your Ideal Customer Profile hypothesis","HIGH","GTM"],
+   [12,"Map alternatives & competition (incl. “do nothing”)","HIGH","Strategy"],
+   [13,"Articulate your differentiation & point of view","HIGH","Strategy"]]},
+ {key:"Validation",short:"Valid.",name:"Stage 2 · Validation",tasks:[
+   [14,"Frame testable hypotheses","CRITICAL","GTM"],
+   [15,"Design your validation plan","HIGH","GTM"],
+   [16,"Run customer discovery conversations","CRITICAL","GTM"],
+   [17,"Distinguish real demand signals from false positives","CRITICAL","GTM"],
+   [18,"Set kill / pivot / persist criteria","HIGH","Strategy"],
+   [19,"Build the smallest test needed to learn","HIGH","Systems"],
+   [20,"Decide: iterate, pivot, or proceed","CRITICAL","Strategy"]]},
+ {key:"Offer",short:"Offer",name:"Stage 3 · Offer & Model",tasks:[
+   [21,"Define your offer: problem → outcome → mechanism","CRITICAL","GTM"],
+   [22,"Choose a simple business model","HIGH","Strategy"],
+   [23,"Set pricing anchored to value","CRITICAL","Financial"],
+   [24,"Understand your unit economics","CRITICAL","Financial"],
+   [25,"Build a conservative financial model & runway plan","CRITICAL","Financial"],
+   [26,"Define “enough”: target revenue & break-even","HIGH","Financial"]]},
+ {key:"Proof",short:"Proof",name:"Stage 4 · Proof & First Revenue",tasks:[
+   [27,"Make direct offers to validated prospects","CRITICAL","GTM"],
+   [28,"Handle objections & close first customers","HIGH","GTM"],
+   [29,"Collect payment or firm pre-commitments","CRITICAL","Financial"],
+   [30,"Deliver with the simplest viable system","HIGH","Systems"],
+   [31,"Capture feedback & your first documented result","HIGH","GTM"],
+   [32,"Set up money hygiene","HIGH","Financial"],
+   [33,"Track the few numbers that matter","HIGH","Data"]]},
+ {key:"Growth",short:"Grow",name:"Stage 5 · Foundation for Growth",tasks:[
+   [34,"Document your repeatable core processes","SUPPORTING","Systems"],
+   [35,"Define first KPIs & a weekly review rhythm","HIGH","Data"],
+   [36,"Identify single points of failure","HIGH","People"],
+   [37,"Plan your first delegation or hire","SUPPORTING","People"],
+   [38,"Cover baseline legal, compliance & risk","SUPPORTING","Risk"],
+   [39,"Run the Readiness Self-Assessment","CRITICAL","Cross"],
+   [40,"Choose your next path","HIGH","Strategy"]]}
+];
+const ALL=STAGES.flatMap(s=>s.tasks.map(t=>({id:t[0],name:t[1],tier:t[2],dom:t[3],stage:s.key})));
+const TOTAL=ALL.length, CRIT_TOTAL=ALL.filter(t=>t.tier==="CRITICAL").length;
+const done=new Set();
+const cls=t=>t==="CRITICAL"?"crit":t==="HIGH"?"high":"supp";
+
+function ring(pct){const R=54,C=2*Math.PI*R,off=C*(1-pct/100);
+  document.getElementById('ring').innerHTML=
+  `<circle cx="66" cy="66" r="${R}" fill="none" stroke="#EDEFF4" stroke-width="12"/>
+   <circle cx="66" cy="66" r="${R}" fill="none" stroke="#1F3864" stroke-width="12" stroke-linecap="round"
+     stroke-dasharray="${C}" stroke-dashoffset="${off}" transform="rotate(-90 66 66)" style="transition:stroke-dashoffset .4s"/>
+   <text x="66" y="62" text-anchor="middle" font-size="28" font-weight="800" fill="#1F3864">${pct}%</text>
+   <text x="66" y="82" text-anchor="middle" font-size="10" fill="#6B7280">of 40</text>`;}
+
+function pt(cx,cy,r,i,n){const a=-Math.PI/2+i*2*Math.PI/n;return{x:cx+r*Math.cos(a),y:cy+r*Math.sin(a)};}
+function polypts(cx,cy,r,n){let s=[];for(let i=0;i<n;i++){const p=pt(cx,cy,r,i,n);s.push(p.x+","+p.y);}return s.join(" ");}
+function radar(stagePct){const cx=220,cy=195,R=140,n=STAGES.length;let g="";
+  [25,50,75,100].forEach(v=>{g+=`<polygon points="${polypts(cx,cy,R*v/100,n)}" fill="none" stroke="#E4E8EF" stroke-width="1"/>`;});
+  STAGES.forEach((s,i)=>{const p=pt(cx,cy,R,i,n);g+=`<line x1="${cx}" y1="${cy}" x2="${p.x}" y2="${p.y}" stroke="#E4E8EF" stroke-width="1"/>`;
+    const lp=pt(cx,cy,R+24,i,n);g+=`<text x="${lp.x}" y="${lp.y}" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="700" fill="#374151">${s.short}</text>`;
+    g+=`<text x="${lp.x}" y="${lp.y+14}" text-anchor="middle" font-size="10" fill="#9AA1AD">${stagePct[i]}%</text>`;});
+  g+=`<polygon points="${polypts(cx,cy,R,n)}" fill="none" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="5 4" opacity=".7"/>`;
+  const pts=STAGES.map((s,i)=>pt(cx,cy,R*stagePct[i]/100,i,n));
+  g+=`<polygon points="${pts.map(p=>p.x+","+p.y).join(" ")}" fill="#1F3864" fill-opacity=".15" stroke="#1F3864" stroke-width="2.5"/>`;
+  pts.forEach(p=>{g+=`<circle cx="${p.x}" cy="${p.y}" r="4" fill="#1F3864"/>`;});
+  const pct=Math.round(done.size/TOTAL*100);
+  g+=`<text x="${cx}" y="${cy-2}" text-anchor="middle" font-size="30" font-weight="800" fill="#1F3864">${pct}%</text>`;
+  g+=`<text x="${cx}" y="${cy+16}" text-anchor="middle" font-size="10" fill="#6B7280">COMPLETE</text>`;
+  document.getElementById('radar').innerHTML=g;}
+
+function render(){
+  const pct=Math.round(done.size/TOTAL*100);
+  const critDone=ALL.filter(t=>t.tier==="CRITICAL"&&done.has(t.id)).length;
+  const stagePct=STAGES.map(s=>{const d=s.tasks.filter(t=>done.has(t[0])).length;return Math.round(d/s.tasks.length*100);});
+  ring(pct); radar(stagePct);
+  document.getElementById('fill').style.width=pct+"%";
+  document.getElementById('vOverall').innerHTML=pct+"<small>%</small>";
+  document.getElementById('vTasks').innerHTML=done.size+"<small>/"+TOTAL+"</small>";
+  document.getElementById('vCrit').innerHTML=critDone+"<small>/"+CRIT_TOTAL+"</small>";
+  document.getElementById('kCrit').style.borderLeftColor=(critDone===CRIT_TOTAL)?"var(--green)":"var(--crit)";
+  // current stage = first not fully complete
+  let cur=STAGES.length; for(let i=0;i<STAGES.length;i++){if(stagePct[i]<100){cur=i;break;}}
+  document.getElementById('vStage').textContent = cur===STAGES.length? "Complete" : ("Stage "+cur);
+  // next critical banner
+  const nextCrit=ALL.find(t=>t.tier==="CRITICAL"&&!done.has(t.id));
+  const nb=document.getElementById('nextbanner');
+  if(nextCrit){nb.className="next";nb.innerHTML=`Your next critical task &rarr; <b>#${nextCrit.id} ${nextCrit.name}</b>`;}
+  else{nb.className="next done";nb.innerHTML=`All ${CRIT_TOTAL} critical tasks are complete. Strong foundation — keep going.`;}
+  // nav
+  document.getElementById('navstages').innerHTML=STAGES.map((s,i)=>`<div class="navrow"><span>${s.short}</span><span class="sc">${stagePct[i]}%</span></div>`).join("");
+  // task list
+  let html="";
+  STAGES.forEach((s,i)=>{
+    const d=s.tasks.filter(t=>done.has(t[0])).length;
+    html+=`<div class="stage"><h4>${s.name}<span class="p">${d}/${s.tasks.length}</span></h4>`;
+    for(const t of s.tasks){const c=cls(t[2]);const isd=done.has(t[0]);
+      html+=`<div class="item ${c} ${isd?'done':''}" onclick="toggle(${t[0]})">
+        <div class="box">${isd?'✓':''}</div>
+        <div><span class="txt"><span class="num" style="color:var(--${c})">${t[0]}.</span>${t[1]}
+          <span class="tag ${c}">${t[2]}</span></span>
+          <div class="dom">${t[3]}</div></div></div>`;}
+    html+=`</div>`;});
+  document.getElementById('tasklist').innerHTML=html;
+}
+function toggle(id){done.has(id)?done.delete(id):done.add(id);render();}
+function resetAll(){done.clear();render();}
+function setName(v){document.getElementById('hname').textContent=v.trim()||"Your Venture";}
+render();
+</script>
+</body>
+</html>
