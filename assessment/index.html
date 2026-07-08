@@ -12,6 +12,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<style>
+  .ami{border:1px solid var(--line);background:var(--card);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;margin-top:8px;}
+  .ami-row{display:grid;grid-template-columns:104px 1fr;border-top:1px solid var(--line);}
+  .ami-row:first-child{border-top:0;}
+  .ami-band{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:18px 8px;text-align:center;}
+  .ami-band b{font-family:var(--disp);font-size:19px;font-weight:700;line-height:1;letter-spacing:-.01em;}
+  .ami-band span{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-top:6px;opacity:.92;}
+  .ami-c1{background:#C24326;}.ami-c2{background:#CF7A32;}.ami-c3{background:#B8942F;}.ami-c4{background:#5E8C4B;}.ami-c5{background:#2E6E56;}
+  .ami-txt{padding:16px 22px;}
+  .ami-txt h4{font-family:var(--disp);font-weight:700;font-size:16px;color:var(--ink);margin:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;line-height:1.2;}
+  .ami-gate{font-family:var(--ui);font-weight:700;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:#8A5A12;background:rgba(226,169,80,.18);border:1px solid rgba(226,169,80,.55);padding:3px 9px;border-radius:999px;}
+  .ami-txt p{font-family:var(--ui);font-size:13.5px;color:var(--ink-2);line-height:1.5;margin:5px 0 0;}
+  @media(max-width:520px){.ami-row{grid-template-columns:84px 1fr}.ami-band b{font-size:16px}}
+</style>
 </head>
 <body>
 
@@ -77,6 +91,38 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- WHAT YOUR SCORE MEANS (AMI ladder) -->
+<section class="sec wrap">
+  <div class="sec-head rev">
+    <span class="eyebrow">What your score means</span>
+    <h2 class="h2">The AMI is not a grade. <span class="grad-text">It is a location.</span></h2>
+    <p class="lead" style="margin-top:16px;max-width:64ch;">Your eight domain scores roll into one Architecture Maturity Index from 0 to 100, reported as a band and set by your weakest critical domain, not your average. Here is what each band means, and the two gates that decide when you can raise and when you can scale.</p>
+  </div>
+  <div class="ami rev d1" style="margin-top:34px;">
+    <div class="ami-row">
+      <div class="ami-band ami-c1"><b>0–39</b><span>Critical</span></div>
+      <div class="ami-txt"><h4>Stabilize · Critical</h4><p>Running on luck. Survival-level gaps, cash visibility, key-person risk, governance, come first. Nothing else matters until they are closed.</p></div>
+    </div>
+    <div class="ami-row">
+      <div class="ami-band ami-c2"><b>40–54</b><span>Foundation</span></div>
+      <div class="ami-txt"><h4>Stabilize · Foundation <span class="ami-gate">Capital-ready gate</span></h4><p>The bleeding has stopped: minimum viable financial controls, metrics, and governance exist. Near the top of this band, you can take on investment without it accelerating failure.</p></div>
+    </div>
+    <div class="ami-row">
+      <div class="ami-band ami-c3"><b>55–69</b><span>Emerging</span></div>
+      <div class="ami-txt"><h4>Stabilize · Emerging <span class="ami-gate">Growth-ready gate</span></h4><p>The machine is taking shape: pipeline, retention, accountability, decisions made with data. The structure can absorb Series A-level deployment.</p></div>
+    </div>
+    <div class="ami-row">
+      <div class="ami-band ami-c4"><b>70–84</b><span>Build</span></div>
+      <div class="ami-txt"><h4>Build-then-scale</h4><p>The architecture is reliable and measured. The business can absorb two to three times its current volume without a redesign. Strengthen, then push.</p></div>
+    </div>
+    <div class="ami-row">
+      <div class="ami-band ami-c5"><b>85–100</b><span>Scale</span></div>
+      <div class="ami-txt"><h4>Scale track</h4><p>Improvement loops are active and the architecture handles stress by design. Accelerate with confidence.</p></div>
+    </div>
+  </div>
+  <p class="lead rev d2" style="margin-top:22px;max-width:66ch;color:var(--ink-3);font-size:15.5px;">The ladder is honest. A company starting at 37 cannot reach 70 in one ninety-day sprint. We model your realistic trajectory and name the band this cycle can actually reach, with the gates as milestones along the way.</p>
 </section>
 
 <!-- WHAT YOU GET -->
