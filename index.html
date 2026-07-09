@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0C1A30" />
 <meta name="robots" content="noindex" /><!-- PREVIEW BUILD -->
 <title>The Saunter Group — Find what breaks first, before it breaks you</title>
-<meta name="description" content="Diagnose the business. Develop the leaders inside it. Saunter measures how your business is built and how your leaders operate, then hands you the one thing to fix first." />
+<meta name="description" content="Business risk diagnostics for founders scaling under load. We find the one weak spot most likely to bring the rest down, put a dollar figure on it, and tell you what to fix first." />
 <link rel="icon" type="image/svg+xml" href="assets/saunter-mark.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,22 +16,22 @@
     --cream:#FBF6EC;
     --cream-2:#F4EBDA;
     --card:#FFFFFF;
-    --ink:#15233D;         /* headings on light */
-    --ink-2:#4B5771;       /* body on light */
+    --ink:#15233D;
+    --ink-2:#4B5771;
     --ink-3:#8791A6;
     --navy:#0C1A30;
     --navy-2:#122544;
     --line:#E9DFCC;
     --brass:#B37B2A;
     --amber:#E2A950;
-    --coral:#D5623C;
-    --coral-soft:#F6D9CB;
+    --coral:#BD5236;
+    --coral-soft:#F4DDCE;
     --sand:#EAD6B4;
     --teal:#2E6E56;
     --teal-soft:#CFE3D6;
     --navy-soft:#D5DCE8;
-    --grad:linear-gradient(103deg,#C6893B 0%,#E2A950 52%,#D5623C 120%);
-    --grad-warm:linear-gradient(103deg,#E2A950,#D5623C);
+    --grad:linear-gradient(103deg,#C6893B 0%,#E2A950 52%,#BD5236 120%);
+    --grad-warm:linear-gradient(103deg,#E2A950,#BD5236);
     --disp:'Fraunces', Georgia, 'Times New Roman', serif;
     --ui:'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
     --mx:1200px;
@@ -51,7 +51,6 @@
   .wrap{max-width:var(--mx);margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative;}
   section{position:relative;}
 
-  /* ---------- type ---------- */
   h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:700;font-optical-sizing:auto;letter-spacing:-.018em;line-height:1.05;color:var(--ink);}
   .display{font-weight:700;letter-spacing:-.016em;line-height:1.03;}
   .h1{font-size:clamp(44px,7vw,92px);}
@@ -64,7 +63,6 @@
   .kick.on-dark{color:#F0D9AE;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);}
   .eyebrow{font-family:var(--ui);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);}
 
-  /* ---------- buttons ---------- */
   .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--ui);font-weight:600;font-size:16px;padding:16px 28px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .22s var(--ease),box-shadow .22s var(--ease),background .22s,color .22s;white-space:nowrap;}
   .btn .arw{transition:transform .22s var(--ease);}
   .btn:hover .arw{transform:translateX(4px);}
@@ -82,13 +80,12 @@
   .tlink .arw{transition:transform .2s var(--ease);}
   .tlink:hover .arw{transform:translateX(4px);}
 
-  /* ---------- nav ---------- */
   .nav{position:sticky;top:0;z-index:100;background:rgba(251,246,236,.82);backdrop-filter:saturate(150%) blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s;}
   .nav.scrolled{border-color:var(--line);background:rgba(251,246,236,.95);}
   .nav-in{max-width:var(--mx);margin:0 auto;padding:14px clamp(20px,5vw,48px);display:flex;align-items:center;gap:26px;}
   .nav-brand{display:flex;align-items:center;flex-shrink:0;text-decoration:none;}
   .nav-brand img{height:52px;width:auto;}
-  .nav-links{display:flex;align-items:center;gap:28px;flex:1;justify-content:flex-end;}
+  .nav-links{display:flex;align-items:center;gap:26px;flex:1;justify-content:flex-end;}
   .nav-links a{font-family:var(--ui);font-weight:500;font-size:15px;color:var(--ink-2);text-decoration:none;transition:color .18s;}
   .nav-links a:hover{color:var(--ink);}
   .nav-cta{background:var(--navy);color:#fff!important;padding:11px 20px;border-radius:999px;font-weight:600!important;font-size:14px!important;transition:transform .2s var(--ease),box-shadow .2s;}
@@ -98,7 +95,7 @@
   .nav-tog[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
   .nav-tog[aria-expanded="true"] span:nth-child(2){opacity:0;}
   .nav-tog[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
-  @media(max-width:860px){
+  @media(max-width:900px){
     .nav-tog{display:flex;}
     .nav-links{position:absolute;top:100%;left:12px;right:12px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:2px;padding:10px;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top;transition:opacity .2s,transform .26s var(--ease),visibility 0s linear .26s;}
     .nav-links.open{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .26s var(--ease);}
@@ -107,28 +104,25 @@
     .nav-cta{text-align:center;margin-top:4px;}
   }
 
-  /* ---------- reveal ---------- */
   .rev{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
   .rev.in{opacity:1;transform:none;}
   .rev.d1{transition-delay:.08s;}.rev.d2{transition-delay:.16s;}.rev.d3{transition-delay:.24s;}.rev.d4{transition-delay:.32s;}
   @media(prefers-reduced-motion:reduce){.rev{opacity:1!important;transform:none!important;}html{scroll-behavior:auto;}}
 
-  /* ---------- HERO ---------- */
   .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;}
   .hero::before{content:"";position:absolute;inset:0;background:
     radial-gradient(900px 520px at 78% 6%, rgba(226,169,80,.28), transparent 60%),
-    radial-gradient(760px 620px at 96% 92%, rgba(213,98,60,.24), transparent 58%),
-    radial-gradient(700px 600px at 4% 84%, rgba(46,110,86,.20), transparent 60%);}
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:120px;background:linear-gradient(to bottom, transparent, var(--cream));opacity:.0;}
-  .hero-in{position:relative;z-index:2;max-width:var(--mx);margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,48px) clamp(72px,10vw,130px);}
-  .hero h1{max-width:17ch;margin:26px 0 0;color:#fff;}
-  .hero .lead{color:#C4CEDE;max-width:56ch;margin:24px 0 0;font-size:clamp(18px,1.6vw,23px);}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:38px;}
-  .hero-trust{margin-top:20px;font-size:14px;color:#8A99B4;display:flex;gap:8px 20px;flex-wrap:wrap;}
+    radial-gradient(760px 620px at 96% 92%, rgba(189,82,54,.22), transparent 58%),
+    radial-gradient(700px 600px at 4% 84%, rgba(46,110,86,.18), transparent 60%);}
+  .hero-in{position:relative;z-index:2;max-width:var(--mx);margin:0 auto;padding:clamp(60px,8vw,112px) clamp(20px,5vw,48px) clamp(64px,9vw,120px);}
+  .hero h1{max-width:16ch;margin:24px 0 0;color:#fff;}
+  .hero .lead{color:#C4CEDE;max-width:58ch;margin:24px 0 0;font-size:clamp(18px,1.6vw,23px);}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:34px;}
+  .hero-trust{margin-top:22px;font-size:14px;color:#8A99B4;display:flex;gap:8px 20px;flex-wrap:wrap;}
   .hero-trust span{display:inline-flex;align-items:center;gap:8px;}
   .hero-trust span::before{content:"";width:16px;height:16px;border-radius:50%;background:rgba(226,169,80,.16);border:1px solid rgba(226,169,80,.5);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.4 2.4L12 5.2' stroke='%23E2A950' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");}
+  .hero-cred{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-family:var(--ui);font-size:14.5px;color:#9BA8C0;max-width:56ch;line-height:1.5;}
 
-  /* ---------- benefit tiles ---------- */
   .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;}
   @media(max-width:900px){.tiles{grid-template-columns:1fr 1fr;}}
   @media(max-width:520px){.tiles{grid-template-columns:1fr;}}
@@ -139,84 +133,48 @@
   .tile p{font-family:var(--ui);font-size:14.5px;line-height:1.5;margin:0;opacity:.9;}
   .tile-navy{background:var(--navy);color:#fff;}
   .tile-brass{background:linear-gradient(150deg,#C6893B,#B37B2A);color:#fff;}
-  .tile-coral{background:linear-gradient(150deg,#DE6E45,#C94F2E);color:#fff;}
+  .tile-coral{background:linear-gradient(150deg,#C55E3E,#AA472B);color:#fff;}
   .tile-teal{background:linear-gradient(150deg,#357a60,#2E6E56);color:#fff;}
   .tile .ic svg{width:22px;height:22px;}
 
-  /* ---------- section scaffold ---------- */
-  .sec{padding:clamp(72px,9vw,132px) 0;}
+  .sec{padding:clamp(64px,8vw,120px) 0;}
   .sec-head{max-width:56ch;}
   .sec-head.center{margin:0 auto;text-align:center;}
   .sec-head .h2{margin-top:16px;}
   .sec-head .lead{margin-top:20px;}
 
-  /* problem cards */
-  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;}
+  .pain-head{text-align:center;max-width:60ch;margin:0 auto;}
+  .pain-qual{font-family:var(--ui);font-size:16px;color:var(--ink-2);max-width:58ch;margin:18px auto 0;line-height:1.55;}
+  .sound{display:inline-flex;align-items:center;gap:9px;font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);background:var(--coral-soft);border-radius:999px;padding:7px 15px;margin:38px auto 0;}
+  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px;}
   @media(max-width:880px){.pain-grid{grid-template-columns:1fr;}}
   .pain{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px 30px;box-shadow:var(--shadow);}
   .pain .q{font-family:var(--disp);font-weight:700;font-size:22px;line-height:1.12;color:var(--ink);margin:0 0 12px;letter-spacing:-.02em;}
   .pain p{font-family:var(--ui);font-size:15.5px;color:var(--ink-2);margin:0;line-height:1.55;}
-  .pain .tag{font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);margin-bottom:14px;display:block;}
 
-  /* solution split */
   .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;}
   @media(max-width:880px){.split{grid-template-columns:1fr;gap:32px;}}
-  .prod-card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:clamp(28px,3.4vw,44px);box-shadow:var(--shadow);}
+  .prod-card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:clamp(28px,3.4vw,40px);box-shadow:var(--shadow);}
   .prod-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--grad-warm);padding:7px 14px;border-radius:999px;margin-bottom:20px;}
-  .prod-badge.nested{background:var(--teal);}
-  .prod-list{list-style:none;padding:0;margin:22px 0 28px;}
-  .prod-list li{font-family:var(--ui);font-size:15.5px;color:var(--ink-2);padding:13px 0;border-top:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;}
-  .prod-list li:first-child{border-top:0;}
-  .prod-list li::before{content:"";flex-shrink:0;width:22px;height:22px;border-radius:7px;margin-top:1px;background:var(--cream-2);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Cpath d='M6 11.4l3 3L16 7' stroke='%23B37B2A' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
 
-  /* big number panel */
-  .figpanel{background:var(--navy);border-radius:26px;padding:clamp(28px,3.4vw,40px);color:#fff;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;}
-  .figpanel::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 320px at 88% 0%, rgba(226,169,80,.22), transparent 62%);}
-  .figpanel .fh{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
-  .figpanel .fh .t{font-family:var(--ui);font-weight:600;font-size:14px;color:#C4CEDE;}
-  .figpanel .fh .b{font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#F0D9AE;background:rgba(226,169,80,.14);border:1px solid rgba(226,169,80,.34);padding:6px 12px;border-radius:999px;}
-  .drow{position:relative;display:grid;grid-template-columns:120px 1fr 42px;align-items:center;gap:16px;padding:11px 0;border-top:1px solid rgba(255,255,255,.10);}
-  .drow:first-of-type{border-top:0;}
-  .drow .dn{font-family:var(--ui);font-size:14px;color:#C4CEDE;}
-  .drow .dt{height:8px;border-radius:99px;background:rgba(255,255,255,.10);overflow:hidden;}
-  .drow .df{height:100%;width:0;border-radius:99px;background:var(--grad-warm);transition:width 1.1s var(--ease);}
-  .drow .df.crit{background:linear-gradient(90deg,#E0623A,#D5623C);}
-  .drow .dv{font-family:var(--ui);font-weight:700;font-size:15px;text-align:right;}
-  .drow .dv.crit{color:#F0A07E;}
+  .tools{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px;}
+  @media(max-width:760px){.tools{grid-template-columns:1fr;}}
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,3vw,38px);box-shadow:var(--shadow);display:flex;flex-direction:column;}
+  .tool .ic{width:46px;height:46px;border-radius:13px;background:var(--grad-warm);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .tool.ldna .ic{background:var(--teal);}
+  .tool h3{font-size:25px;margin:0 0 4px;}
+  .tool .dev{font-family:var(--ui);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:inline-block;}
+  .tool p{font-family:var(--ui);font-size:15.5px;color:var(--ink-2);line-height:1.55;margin:0 0 22px;}
+  .tool .tlink{margin-top:auto;}
 
-  /* stat band */
-  .statband{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .statgrid{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,64px);align-items:center;}
-  @media(max-width:760px){.statgrid{grid-template-columns:1fr;gap:16px;}}
-  .statnum{font-family:var(--disp);font-weight:800;font-size:clamp(88px,15vw,190px);line-height:.86;letter-spacing:-.05em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .statctx{font-family:var(--disp);font-weight:600;font-size:clamp(21px,2.5vw,30px);line-height:1.16;color:var(--ink);letter-spacing:-.02em;max-width:22ch;}
+  .figrow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+  @media(max-width:760px){.figrow{grid-template-columns:1fr;}}
+  .fig{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px 28px;box-shadow:var(--shadow);}
+  .fig b{display:block;font-family:var(--disp);font-weight:800;font-size:clamp(42px,5.4vw,60px);letter-spacing:-.04em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .fig p{font-family:var(--ui);font-size:15px;color:var(--ink-2);margin:14px 0 0;line-height:1.5;}
+  .src-line{font-family:var(--ui);font-size:13.5px;color:var(--ink-3);margin-top:26px;line-height:1.5;}
 
-  /* proof strip (lead with proof) */
-  .proofbar{background:var(--cream);border-bottom:1px solid var(--line);}
-  .proofbar-in{display:flex;align-items:center;justify-content:space-between;gap:28px 44px;flex-wrap:wrap;padding:26px 0;}
-  .proofbar .lbl{font-family:var(--ui);font-weight:700;font-size:13.5px;letter-spacing:.02em;color:var(--ink-3);max-width:24ch;line-height:1.4;}
-  .proofbar .nums{display:flex;gap:30px 44px;flex-wrap:wrap;}
-  .pstat{display:flex;flex-direction:column;}
-  .pstat b{font-family:var(--disp);font-weight:800;font-size:clamp(28px,3vw,40px);letter-spacing:-.03em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .pstat span{font-family:var(--ui);font-size:13px;color:var(--ink-2);margin-top:6px;}
-
-  /* results / proof section */
-  .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
-  @media(max-width:820px){.result-grid{grid-template-columns:1fr;}}
-  .result-grid.g2{grid-template-columns:repeat(2,1fr);}
-  @media(max-width:820px){.result-grid.g2{grid-template-columns:1fr;}}
-  .result{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px 28px;box-shadow:var(--shadow);}
-  .result b{display:block;font-family:var(--disp);font-weight:800;font-size:clamp(42px,5.4vw,64px);letter-spacing:-.04em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .result p{font-family:var(--ui);font-size:15.5px;color:var(--ink-2);margin:14px 0 0;line-height:1.5;}
-  .result .src{display:block;font-family:var(--ui);font-weight:600;font-size:12.5px;color:var(--ink-3);margin-top:16px;}
-  .tstmnl{margin-top:18px;background:var(--navy);color:#fff;border-radius:26px;padding:clamp(30px,4vw,52px);position:relative;overflow:hidden;}
-  .tstmnl::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 340px at 90% 0%, rgba(226,169,80,.20), transparent 62%);}
-  .tstmnl q{position:relative;font-family:var(--disp);font-weight:600;font-size:clamp(22px,2.9vw,34px);line-height:1.24;letter-spacing:-.02em;quotes:none;display:block;color:#fff;}
-  .tstmnl .who{position:relative;font-family:var(--ui);font-size:14.5px;color:#C4CEDE;margin-top:22px;display:block;}
-  .ph-note{display:inline-flex;align-items:center;gap:8px;font-family:var(--ui);font-weight:600;font-size:12px;color:var(--coral);background:var(--coral-soft);border-radius:999px;padding:6px 13px;margin-top:14px;}
-
-  /* method steps */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px;}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
   @media(max-width:880px){.steps{grid-template-columns:1fr 1fr;}}
   @media(max-width:520px){.steps{grid-template-columns:1fr;}}
   .step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 24px;box-shadow:var(--shadow);}
@@ -224,30 +182,17 @@
   .step h4{font-size:19px;margin:14px 0 7px;}
   .step p{font-family:var(--ui);font-size:14px;color:var(--ink-2);margin:0;line-height:1.5;}
 
-  /* proof */
-  .proof{background:var(--navy);color:#fff;}
-  .proof .h2{color:#fff;}
-  .proof .lead{color:#C4CEDE;}
-  .proof-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:clamp(28px,3.4vw,40px);}
-  .logos{display:flex;flex-wrap:wrap;gap:24px 34px;align-items:center;margin-top:36px;}
-  .logos img{height:30px;width:auto;opacity:.65;filter:brightness(0) invert(1);transition:opacity .25s;}
-  .logos a:hover img{opacity:1;}
+  .statband{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 
-  /* instruments */
-  .insrow{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:20px 0;border-top:1px solid var(--line);}
-  .insrow:first-child{border-top:0;}
-  .insrow h4{font-size:20px;margin:0 0 3px;}
-  .insrow .m{font-family:var(--ui);font-size:13px;color:var(--ink-3);}
-  .insrow .r{font-family:var(--ui);font-weight:700;font-size:13px;color:var(--brass);white-space:nowrap;}
-
-  /* about */
   .about-portrait{width:84px;height:84px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:var(--shadow);margin-bottom:20px;}
   .about-portrait img{width:100%;height:100%;object-fit:cover;}
   .about-quote{font-family:var(--disp);font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.12;letter-spacing:-.02em;color:var(--ink);}
 
-  /* closing cta */
+  .adv-teaser{margin-top:22px;font-family:var(--ui);font-size:15px;color:var(--ink-2);text-align:center;}
+  .adv-teaser a{color:var(--brass);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(179,123,42,.4);padding-bottom:1px;}
+
   .close{background:var(--navy);color:#fff;position:relative;overflow:hidden;}
-  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 50% -10%, rgba(226,169,80,.26), transparent 62%),radial-gradient(600px 500px at 90% 110%, rgba(213,98,60,.22), transparent 60%);}
+  .close::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 50% -10%, rgba(226,169,80,.26), transparent 62%),radial-gradient(600px 500px at 90% 110%, rgba(189,82,54,.22), transparent 60%);}
   .close .h2{color:#fff;}
   .doors{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px;}
   @media(max-width:760px){.doors{grid-template-columns:1fr;}}
@@ -257,7 +202,6 @@
   .door h3{font-size:27px;color:#fff;margin:0 0 10px;}
   .door p{font-family:var(--ui);font-size:15px;color:#B9C4D6;line-height:1.55;margin:0 0 24px;flex:1;}
 
-  /* footer */
   footer{background:#08111F;color:#8A99B4;padding:clamp(56px,7vw,84px) 0 36px;}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;}
   @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px;}}
@@ -268,6 +212,14 @@
   .foot-col a{display:block;font-family:var(--ui);font-size:15px;color:#AEB9CD;text-decoration:none;margin-bottom:10px;}
   .foot-col a:hover{color:#fff;}
   .foot-bot{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.10);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--ui);font-size:12px;color:#5f6d86;}
+  .foot-license{margin-top:14px;font-family:var(--ui);font-size:12px;color:#5f6d86;line-height:1.5;}
+
+  .mcta{display:none;}
+  @media(max-width:640px){
+    .mcta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:200;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(12,26,48,.94);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.14);}
+    .mcta a{width:100%;justify-content:center;}
+    body{padding-bottom:76px;}
+  }
 </style>
 </head>
 <body>
@@ -280,310 +232,145 @@
       <a href="assessment/">The Assessment</a>
       <a href="leadership-dna/">Leadership DNA</a>
       <a href="method/">How it works</a>
-      <a href="consulting/">For Consultants</a>
+      <a href="results/">Results</a>
       <a href="about/">About</a>
-      <a href="#start" class="nav-cta">Get your free diagnostic</a>
+      <a href="consulting/">For Consultants</a>
+      <a href="#start" class="nav-cta">Start free</a>
     </div>
   </div>
 </nav>
 
-<!-- ================= HERO ================= -->
+<!-- ============ BLOCK 1 — HERO ============ -->
 <section class="hero">
   <div class="hero-in">
-    <span class="kick on-dark rev">Failure analysis for companies, not machines</span>
-    <h1 class="display h1 rev d1">Find out what's going to break <span class="grad-text">before it breaks you.</span></h1>
-    <p class="lead rev d2">We come from systems engineering, vulnerability analysis, and change management, the disciplines where a missed failure mode is a catastrophe, not a bad quarter, and a fix only counts if it holds. Saunter turns that rigor on your business and your leaders, including how they adopt AI without breaking what already works, then hands you the one leak to seal first, with a number next to it.</p>
+    <span class="kick on-dark rev">Business risk diagnostics for founders scaling under load</span>
+    <h1 class="display h1 rev d1">Find what breaks first, <span class="grad-text">before it breaks you.</span></h1>
+    <p class="lead rev d2">We come from fields where a missed problem is a catastrophe, not a bad quarter. We bring that discipline to your business: we find the one weak spot most likely to bring the rest down, put a dollar figure on it, and tell you what to fix first.</p>
     <div class="hero-cta rev d3">
-      <a href="#start" class="btn btn-grad">Take the free assessment <span class="arw">→</span></a>
-      <a href="#method" class="btn btn-ghost on-dark">See how it works</a>
+      <a href="#start" class="btn btn-grad">Start the free assessment <span class="arw">→</span></a>
+      <a href="#how" class="btn btn-ghost on-dark">See how it works</a>
     </div>
     <div class="hero-trust rev d3">
       <span>Free full report</span>
-      <span>Under 8 minutes</span>
+      <span>8 minutes</span>
       <span>No sales call</span>
     </div>
+    <p class="hero-cred rev d3">Built by a former fighter pilot and defense failure-modeler who sold the firm he built on this discipline.</p>
+  </div>
+</section>
 
-    <div class="tiles rev d2">
-      <div class="tile tile-navy">
+<!-- ============ BLOCK 2 — IS THIS YOU? ============ -->
+<section class="sec wrap">
+  <div class="pain-head rev">
+    <span class="eyebrow">If you are scaling, you already feel it</span>
+    <h2 class="h2" style="margin-top:16px;">The cracks were always there. <span class="grad-text">Growth just found them.</span></h2>
+    <p class="pain-qual">Built for founders and operators running a growing company that has started to strain, roughly the point where more revenue stops feeling like more control.</p>
+    <span class="sound">Sound familiar?</span>
+  </div>
+  <div class="pain-grid">
+    <div class="pain rev d1">
+      <p class="q">"Everything still runs through me."</p>
+      <p>The company can't move faster than your calendar, and you can't see what to hand off first.</p>
+    </div>
+    <div class="pain rev d2">
+      <p class="q">"Revenue is up. So why does it feel fragile?"</p>
+      <p>Growth is covering for an operating core held together with duct tape.</p>
+    </div>
+    <div class="pain rev d3">
+      <p class="q">"I think this leader is in the wrong seat."</p>
+      <p>A good person underwater in a role their wiring fights. Usually a fit problem, and fixable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOCK 3 — WHAT SAUNTER DOES ============ -->
+<section class="sec statband">
+  <div class="wrap">
+    <div class="sec-head center rev">
+      <span class="eyebrow">What Saunter does</span>
+      <h2 class="h2">We map your whole company as a system, then <span class="grad-text">rank what breaks first.</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto;">In one diagnostic you see how the business is really built across eight areas, which failure is most likely to take the others down, and the exact order to fix them in.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile tile-navy rev d1">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2 6 4-14 2 8h6" stroke="#E2A950" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div><h4>Know what breaks first</h4><p>The one failure that takes the rest down with it, ranked ahead of the noise.</p></div>
+        <div><h4>Know what breaks first</h4><p>The one failure that takes the rest down, ranked ahead of the noise.</p></div>
       </div>
-      <div class="tile tile-brass">
+      <div class="tile tile-brass rev d2">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="#fff" stroke-width="1.8"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div><h4>Right leader, right seat</h4><p>See who fits the role their wiring is built for, and who is quietly miscast.</p></div>
       </div>
-      <div class="tile tile-coral">
+      <div class="tile tile-coral rev d3">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 4.4-3.2 7.6-8 9-4.8-1.4-8-4.6-8-9V7l8-4z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-        <div><h4>De-risk the big calls</h4><p>Walk into the raise, the hire, or the deal knowing exactly where the exposure sits.</p></div>
+        <div><h4>De-risk the big calls</h4><p>Walk into the raise, the restructure, or the deal knowing where the exposure sits.</p></div>
       </div>
-      <div class="tile tile-teal">
+      <div class="tile tile-teal rev d4">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V9m5 10V5m5 14v-7m5 7V8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div><h4>Scale without cracking</h4><p>Build the architecture that holds at the next stage, before you get there.</p></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ================= PROOF STRIP (lead with proof) ================= -->
-<section class="proofbar">
-  <div class="wrap proofbar-in">
-    <span class="lbl rev">Real client results, in a single diagnostic cycle</span>
-    <div class="nums rev d1">
-      <span class="pstat"><b>$7M+</b><span>risk exposure retired</span></span>
-      <span class="pstat"><b>+24%</b><span>net revenue</span></span>
-      <span class="pstat"><b>20%+</b><span>profit-margin lift</span></span>
-      <span class="pstat"><b>29%</b><span>of risk cleared in 90 days</span></span>
+    <div class="rev d2" style="text-align:center;margin-top:44px;">
+      <a href="#start" class="btn btn-grad">Start the free assessment <span class="arw">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ================= PROBLEM ================= -->
+<!-- ============ BLOCK 4 — PROOF ============ -->
 <section class="sec wrap">
   <div class="sec-head center rev">
-    <span class="eyebrow">If you are scaling, you already feel it</span>
-    <h2 class="h2">The cracks were always there. <span class="grad-text">Growth just found them.</span></h2>
-    <p class="lead" style="margin-left:auto;margin-right:auto;">Every operator hits the point where the things that worked at one size quietly stop working at the next. The symptoms show up long before the cause has a name.</p>
-  </div>
-  <div class="pain-grid">
-    <div class="pain rev d1">
-      <span class="tag">Sound familiar?</span>
-      <p class="q">"Everything still runs through me."</p>
-      <p>The company cannot move faster than your calendar. You are the bottleneck, and you know it, but you cannot see what to hand off first.</p>
-    </div>
-    <div class="pain rev d2">
-      <span class="tag">Sound familiar?</span>
-      <p class="q">"Revenue is up. So why does it feel fragile?"</p>
-      <p>Growth is covering for an operating core held together with duct tape. When it slows, everything underneath becomes visible at once.</p>
-    </div>
-    <div class="pain rev d3">
-      <span class="tag">Sound familiar?</span>
-      <p class="q">"I think this leader is in the wrong seat."</p>
-      <p>A good person, underwater in a role their wiring fights. It reads as a performance problem. Usually it is a fit problem, and it is fixable.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= COST OF WAITING ================= -->
-<section class="sec wrap">
-  <div class="sec-head center rev">
-    <span class="eyebrow">The cost of waiting</span>
-    <h2 class="h2">Every quarter you can't name it, <span class="grad-text">it keeps billing you.</span></h2>
-    <p class="lead" style="margin-left:auto;margin-right:auto;">Rough math, before you ever hire us. This is what these problems quietly cost a company your size while they stay unnamed.</p>
-  </div>
-  <div class="result-grid">
-    <div class="result rev d1"><b>1.5&ndash;2x</b><p>salary to replace one misfit executive, on top of the months of momentum lost around the empty seat.</p><span class="src">The wrong person in the seat</span></div>
-    <div class="result rev d2"><b>1&ndash;2 qtrs</b><p>of momentum a $5M company typically loses to a single leadership-team misalignment nobody names.</p><span class="src">A stuck leadership team</span></div>
-    <div class="result rev d3"><b>Every qtr</b><p>a broken domain leaks margin, and it compounds, right up until someone finally puts a number on it.</p><span class="src">One unfixed structural leak</span></div>
-  </div>
-</section>
-
-<!-- ================= ASSESSMENT (flagship) ================= -->
-<section id="assessment" class="sec statband">
-  <div class="wrap">
-    <div class="split">
-      <div class="rev">
-        <span class="prod-badge">The flagship · Business Assessment</span>
-        <h2 class="h2">We map your whole company as a system, then <span class="grad-text">rank what breaks first.</span></h2>
-        <p class="lead" style="margin-top:18px;">In thirty days you get a clear picture of how the business is really built across eight areas, which failure is most likely to take the others down, and the exact order to fix them in.</p>
-        <ul class="prod-list">
-          <li>A single score for how ready the business is to hold its next stage of growth</li>
-          <li>A ranked list of what breaks first, what breaks hardest, and what each one costs you</li>
-          <li>A ninety-day plan with a real owner on every line, tracked on a live dashboard</li>
-        </ul>
-        <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-          <a href="#start" class="btn btn-grad">Find what to fix first <span class="arw">→</span></a>
-          <a href="#consulting" class="tlink">How it works <span class="arw">→</span></a>
-        </div>
-      </div>
-      <div class="rev d1">
-        <div class="figpanel" data-fig>
-          <div class="fh"><span class="t">Business architecture · readiness by area</span><span class="b">Live</span></div>
-          <div class="drow"><span class="dn">Strategy</span><span class="dt"><span class="df" data-w="72"></span></span><span class="dv">72</span></div>
-          <div class="drow"><span class="dn">Structure</span><span class="dt"><span class="df" data-w="50"></span></span><span class="dv">50</span></div>
-          <div class="drow"><span class="dn">Systems</span><span class="dt"><span class="df" data-w="62"></span></span><span class="dv">62</span></div>
-          <div class="drow"><span class="dn">Financials</span><span class="dt"><span class="df crit" data-w="34"></span></span><span class="dv crit">34</span></div>
-          <div class="drow"><span class="dn">Revenue</span><span class="dt"><span class="df" data-w="78"></span></span><span class="dv">78</span></div>
-          <div class="drow"><span class="dn">Risk</span><span class="dt"><span class="df crit" data-w="38"></span></span><span class="dv crit">38</span></div>
-          <div class="drow"><span class="dn">Leadership</span><span class="dt"><span class="df" data-w="66"></span></span><span class="dv">66</span></div>
-          <div style="position:relative;display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);">
-            <span style="font-family:var(--ui);font-size:13px;color:#C4CEDE;">Overall readiness <b style="color:#fff;">52 / 100</b></span>
-            <span style="font-family:var(--ui);font-weight:700;font-size:13px;color:#F0A07E;">2 areas critical: fix these first</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LEADERSHIP DNA (nested) ================= -->
-<section id="leadership" class="sec wrap">
-  <div class="split">
-    <div class="rev">
-      <div class="prod-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-          <span style="font-family:var(--disp);font-weight:700;font-size:18px;color:var(--ink);">A single leader, seen clearly</span>
-          <span style="font-family:var(--ui);font-weight:700;font-size:12px;color:var(--teal);">7 dimensions</span>
-        </div>
-        <svg viewBox="0 0 320 250" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
-          <g stroke="#E9DFCC" stroke-width="1.4" fill="none">
-            <polygon points="160,28 232,66 250,146 202,214 118,214 70,146 88,66"/>
-            <polygon points="160,74 202,96 213,142 185,181 135,181 107,142 118,96"/>
-            <line x1="160" y1="120" x2="160" y2="28"/><line x1="160" y1="120" x2="232" y2="66"/><line x1="160" y1="120" x2="250" y2="146"/><line x1="160" y1="120" x2="202" y2="214"/><line x1="160" y1="120" x2="118" y2="214"/><line x1="160" y1="120" x2="70" y2="146"/><line x1="160" y1="120" x2="88" y2="66"/>
-          </g>
-          <polygon points="160,44 196,92 190,132 172,146 116,206 86,138 96,74" fill="rgba(179,123,42,0.12)" stroke="#B37B2A" stroke-width="2.2" stroke-linejoin="round"/>
-          <polygon points="160,66 214,80 228,146 182,194 138,146 82,138 106,84" fill="none" stroke="#2E6E56" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round"/>
-          <g font-family="Inter,sans-serif" font-size="10.5" font-weight="600" fill="#8791A6">
-            <text x="160" y="16" text-anchor="middle">Drive</text><text x="246" y="62" text-anchor="start">Social</text><text x="260" y="150" text-anchor="start">Pace</text><text x="202" y="232" text-anchor="middle">Structure</text><text x="118" y="232" text-anchor="middle">Creative</text><text x="58" y="150" text-anchor="end">Logic</text><text x="70" y="62" text-anchor="end">Vision</text>
-          </g>
-        </svg>
-        <div style="display:flex;gap:22px;margin-top:12px;font-family:var(--ui);font-size:12.5px;color:var(--ink-3);">
-          <span style="display:inline-flex;align-items:center;gap:8px;"><i style="width:16px;height:3px;background:#B37B2A;border-radius:2px;display:inline-block;"></i>Who they are</span>
-          <span style="display:inline-flex;align-items:center;gap:8px;"><i style="width:16px;height:0;border-top:3px dashed #2E6E56;display:inline-block;"></i>What the role demands</span>
-        </div>
-      </div>
-    </div>
-    <div class="rev d1">
-      <span class="prod-badge nested">Built into the assessment · also free on its own</span>
-      <h2 class="h2">Meet <span class="grad-text">Leadership DNA.</span> It profiles the people running the system.</h2>
-      <p class="lead" style="margin-top:18px;">The assessment shows how the business is built. Leadership DNA shows who is building it: how each leader is wired, what their role actually demands, and the daily cost of the gap between the two. Profile one leader, or map the whole team.</p>
-      <p style="font-family:var(--ui);font-size:16px;color:var(--ink-2);line-height:1.6;margin-top:14px;">Run it inside a full diagnostic, or take the free profile on its own in under ten minutes. Either way the full report is yours, with nothing held back.</p>
-      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:26px;">
-        <a href="#start" class="btn btn-navy">Get your free profile <span class="arw">→</span></a>
-        <a href="#consulting" class="tlink">What it measures <span class="arw">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SAMPLE REPORT (team report teaser) ================= -->
-<section class="sec wrap">
-  <div class="split">
-    <div class="rev">
-      <span class="eyebrow">Inside a typical report</span>
-      <h2 class="h2" style="margin-top:14px;">Not a score in a vacuum. <span class="grad-text">A team you can read.</span></h2>
-      <p class="lead" style="margin-top:16px;">Every leader placed on the value stream, how far the role stretches them, where AI is closing in, and who multiplies with whom. Robust enough to understand, clear enough to act on.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;">
-        <span style="font-family:var(--ui);font-weight:600;font-size:12.5px;color:var(--ink-2);background:var(--cream-2);border:1px solid var(--line);padding:7px 13px;border-radius:999px;">Field map</span>
-        <span style="font-family:var(--ui);font-weight:600;font-size:12.5px;color:var(--ink-2);background:var(--cream-2);border:1px solid var(--line);padding:7px 13px;border-radius:999px;">7 dimensions</span>
-        <span style="font-family:var(--ui);font-weight:600;font-size:12.5px;color:var(--ink-2);background:var(--cream-2);border:1px solid var(--line);padding:7px 13px;border-radius:999px;">AI exposure</span>
-        <span style="font-family:var(--ui);font-weight:600;font-size:12.5px;color:var(--ink-2);background:var(--cream-2);border:1px solid var(--line);padding:7px 13px;border-radius:999px;">Team grid</span>
-      </div>
-      <div style="margin-top:26px;"><a href="leadership-dna/" class="btn btn-navy">See a full sample report <span class="arw">→</span></a></div>
-    </div>
-    <div class="rev d1">
-      <div class="prod-card" style="padding:20px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-          <span style="font-family:var(--disp);font-weight:700;font-size:15px;color:var(--ink);">Value-stream field map, team positions</span>
-          <span style="font-family:var(--ui);font-weight:700;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);">Sample team</span>
-        </div>
-        <svg viewBox="0 0 660 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;" role="img" aria-label="Sample team value-stream field map">
-          <defs><marker id="ld-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8791A6"/></marker></defs>
-          <g font-family="'Inter', Helvetica, sans-serif" font-weight="800" text-anchor="middle">
-            <text x="170" y="26" font-size="14" fill="#B37B2A">Vision</text>
-            <text x="170" y="40" font-size="9.5" font-weight="500" font-style="italic" fill="#8791A6">strategy</text>
-            <text x="340" y="26" font-size="14" fill="#0C1A30">Flow</text>
-            <text x="340" y="40" font-size="9.5" font-weight="500" font-style="italic" fill="#8791A6">operations</text>
-            <text x="510" y="26" font-size="14" fill="#2E6E56">Delivery</text>
-            <text x="510" y="40" font-size="9.5" font-weight="500" font-style="italic" fill="#8791A6">execution</text>
-          </g>
-          <rect x="80" y="56" width="520" height="320" rx="8" fill="#FBF9F4" stroke="#E9DFCC" stroke-width="1"/>
-          <rect x="80" y="56" width="170" height="320" fill="#B37B2A" opacity="0.05"/>
-          <rect x="430" y="56" width="170" height="320" fill="#2E6E56" opacity="0.05"/>
-          <line x1="250" y1="56" x2="250" y2="376" stroke="#E9DFCC" stroke-dasharray="3 4"/>
-          <line x1="430" y1="56" x2="430" y2="376" stroke="#E9DFCC" stroke-dasharray="3 4"/>
-          <g font-family="Inter, sans-serif" font-size="9.5" fill="#8791A6">
-            <text x="64" y="92" text-anchor="end">Structured</text>
-            <text x="64" y="358" text-anchor="end">Adaptive</text>
-          </g>
-          <g font-family="Inter, sans-serif" font-size="9.5" fill="#9A9388">
-            <g><circle cx="170" cy="92" r="2.5" fill="#CBC1A8"/><text x="178" y="95">Strategist</text></g>
-            <g><circle cx="295" cy="118" r="2.5" fill="#CBC1A8"/><text x="303" y="121">Venturer</text></g>
-            <g><circle cx="510" cy="92" r="2.5" fill="#CBC1A8"/><text x="518" y="95">Expert</text></g>
-            <g><circle cx="340" cy="156" r="2.5" fill="#CBC1A8"/><text x="348" y="159">Designer</text></g>
-            <g><circle cx="530" cy="152" r="2.5" fill="#CBC1A8"/><text x="538" y="155">Analyst</text></g>
-            <g><circle cx="185" cy="212" r="2.5" fill="#CBC1A8"/><text x="193" y="215">Adventurer</text></g>
-            <g><circle cx="385" cy="212" r="2.5" fill="#CBC1A8"/><text x="393" y="215">Pathfinder</text></g>
-            <g><circle cx="545" cy="208" r="2.5" fill="#CBC1A8"/><text x="553" y="211">Artisan</text></g>
-            <g><circle cx="340" cy="256" r="2.5" fill="#CBC1A8"/><text x="348" y="259">Ambassador</text></g>
-            <g><circle cx="510" cy="256" r="2.5" fill="#CBC1A8"/><text x="518" y="259">Organizer</text></g>
-            <g><circle cx="315" cy="304" r="2.5" fill="#CBC1A8"/><text x="323" y="307">Promoter</text></g>
-            <g><circle cx="545" cy="304" r="2.5" fill="#CBC1A8"/><text x="553" y="307">Conserver</text></g>
-            <g><circle cx="195" cy="348" r="2.5" fill="#CBC1A8"/><text x="203" y="351">Catalyst</text></g>
-            <g><circle cx="360" cy="348" r="2.5" fill="#CBC1A8"/><text x="368" y="351">Challenger</text></g>
-            <g><circle cx="535" cy="348" r="2.5" fill="#CBC1A8"/><text x="543" y="351">Mediator</text></g>
-          </g>
-          <g><line x1="340" y1="156" x2="342" y2="195" stroke="#0C1A30" stroke-width="1.3" stroke-dasharray="3 2" marker-end="url(#ld-arrow)" opacity="0.6"/><polygon points="342,190 350,198 342,206 334,198" fill="none" stroke="#B37B2A" stroke-width="1.8"/><circle cx="340" cy="156" r="7" fill="#0C1A30"/><text x="340" y="146" font-family="'Inter', Helvetica, sans-serif" font-size="10" font-weight="800" fill="#0C1A30" text-anchor="middle">AC</text></g>
-          <g><line x1="385" y1="212" x2="386" y2="245" stroke="#0C1A30" stroke-width="1.3" stroke-dasharray="3 2" marker-end="url(#ld-arrow)" opacity="0.6"/><polygon points="386,242 394,250 386,258 378,250" fill="none" stroke="#B37B2A" stroke-width="1.8"/><circle cx="385" cy="212" r="7" fill="#0C1A30"/><text x="385" y="202" font-family="'Inter', Helvetica, sans-serif" font-size="10" font-weight="800" fill="#0C1A30" text-anchor="middle">MR</text></g>
-          <g><line x1="170" y1="92" x2="370" y2="205" stroke="#0C1A30" stroke-width="1.3" stroke-dasharray="3 2" marker-end="url(#ld-arrow)" opacity="0.6"/><polygon points="374,205 382,213 374,221 366,213" fill="none" stroke="#B37B2A" stroke-width="1.8"/><circle cx="170" cy="92" r="7" fill="#0C1A30"/><text x="170" y="82" font-family="'Inter', Helvetica, sans-serif" font-size="10" font-weight="800" fill="#0C1A30" text-anchor="middle">KP</text></g>
-          <g><line x1="185" y1="212" x2="328" y2="160" stroke="#0C1A30" stroke-width="1.3" stroke-dasharray="3 2" marker-end="url(#ld-arrow)" opacity="0.6"/><polygon points="326,154 334,162 326,170 318,162" fill="none" stroke="#B37B2A" stroke-width="1.8"/><circle cx="185" cy="212" r="7" fill="#0C1A30"/><text x="185" y="230" font-family="'Inter', Helvetica, sans-serif" font-size="10" font-weight="800" fill="#0C1A30" text-anchor="middle">SD</text></g>
-          <g><line x1="195" y1="348" x2="305" y2="308" stroke="#0C1A30" stroke-width="1.3" stroke-dasharray="3 2" marker-end="url(#ld-arrow)" opacity="0.6"/><polygon points="308,302 316,310 308,318 300,310" fill="none" stroke="#B37B2A" stroke-width="1.8"/><circle cx="195" cy="348" r="7" fill="#0C1A30"/><text x="195" y="366" font-family="'Inter', Helvetica, sans-serif" font-size="10" font-weight="800" fill="#0C1A30" text-anchor="middle">JL</text></g>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= STAT ================= -->
-<section class="sec statband">
-  <div class="wrap statgrid">
-    <div class="statnum rev">1 in 2</div>
-    <div class="statctx rev d1">new U.S. employer businesses do not survive five years (BLS/SBA). Most fail from a load-bearing function quietly weakening, not one dramatic event.</div>
-  </div>
-</section>
-
-<!-- ================= METHOD ================= -->
-<section id="method" class="sec wrap">
-  <div class="sec-head rev">
-    <span class="eyebrow">How it works</span>
-    <h2 class="h2">Measure first. Fix in order. <span class="grad-text">Keep it holding.</span></h2>
-    <p class="lead">We do not walk in with an opinion. We walk in with measurement, then stay long enough to make sure the fix actually sticks.</p>
-  </div>
-  <div class="steps">
-    <div class="step rev d1"><span class="sn">1</span><h4>Take the free evaluation</h4><p>Twelve questions put your business on a risk map in minutes. No cost, no call.</p></div>
-    <div class="step rev d2"><span class="sn">2</span><h4>Run the assessment</h4><p>The full diagnostic scores eight areas and ranks every risk by real impact.</p></div>
-    <div class="step rev d3"><span class="sn">3</span><h4>Get the plan</h4><p>A ninety-day sequence with owners, plus an evaluation of the leaders who must carry it.</p></div>
-    <div class="step rev d4"><span class="sn">4</span><h4>Keep score</h4><p>A live dashboard and a quarterly re-check, so it keeps holding as you grow.</p></div>
-  </div>
-</section>
-
-<!-- ================= RESULTS / PROOF ================= -->
-<section class="sec wrap">
-  <div class="sec-head rev">
     <span class="eyebrow">Real client results</span>
     <h2 class="h2">When operators can finally see the whole system, <span class="grad-text">the numbers move.</span></h2>
-    <p class="lead">Every figure below is from a real client engagement, documented and anonymized by industry.</p>
   </div>
-  <div class="result-grid g2">
-    <div class="result rev d1"><b>+24%</b><p>net revenue, from a four-point gain in financial-controls readiness that required an improved financial model and clearer leadership visibility.</p><span class="src">Professional services company</span></div>
-    <div class="result rev d2"><b>20%+</b><p>profit-margin lift after identifying a founder bottleneck and realigning decision rights across the leadership team, bringing financial discipline to customer delivery.</p><span class="src">Services company</span></div>
-    <div class="result rev d3"><b>$7M</b><p>of expected-loss exposure retired in a single 90-day cycle, nearly a third of the company's total, from $23.9M down to $16.9M.</p><span class="src">Performance footwear company</span></div>
-    <div class="result rev d4"><b>$163K</b><p>a year of addressable margin surfaced when a blended return-rate problem was traced to a single product line.</p><span class="src">Consumer goods company</span></div>
+  <div class="figrow">
+    <div class="fig rev d1"><b>$7M</b><p>of risk exposure retired in a single 90-day cycle.</p></div>
+    <div class="fig rev d2"><b>+24%</b><p>net revenue from a four-point gain in financial-controls readiness.</p></div>
+    <div class="fig rev d3"><b>20%+</b><p>profit-margin lift after clearing a founder bottleneck.</p></div>
   </div>
+  <p class="src-line rev d2" style="text-align:center;">Figures are from real engagements, documented and anonymized by industry. <a href="results/" class="tlink" style="display:inline-flex;">See the full case results <span class="arw">→</span></a></p>
 </section>
 
-<!-- ================= CONSULTING ================= -->
-<section id="consulting" class="sec wrap">
-  <div class="split">
-    <div class="rev">
-      <span class="eyebrow">Consulting and diligence</span>
-      <h2 class="h2" style="margin-top:14px;">When the stakes are big enough to <span class="grad-text">want the whole picture.</span></h2>
-      <p class="lead" style="margin-top:18px;">Beyond the assessment, we work directly with operators and acquirers on the calls that really matter: a raise, a restructure, a senior hire, a deal. Retained advisory, or a fixed-scope diligence engagement before a close.</p>
-      <div style="margin-top:26px;"><a href="#start" class="btn btn-grad">Book a diagnostic call <span class="arw">→</span></a></div>
+<!-- ============ BLOCK 5 — HOW IT WORKS ============ -->
+<section id="how" class="sec statband">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="eyebrow">How it works</span>
+      <h2 class="h2">Measure first. Fix in order. <span class="grad-text">Keep it holding.</span></h2>
     </div>
-    <div class="rev d1">
-      <div class="prod-card">
-        <p style="font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px;">The instruments behind the work</p>
-        <p style="font-family:var(--ui);font-size:14px;color:var(--ink-2);margin:0 0 8px;">Validated measurement we own and license.</p>
-        <div class="insrow"><div><h4>Business Assessment</h4><span class="m">The organizational instrument · BAIC, Business Architecture &amp; Intelligence Cycle</span></div><span class="r">8 areas</span></div>
-        <div class="insrow"><div><h4>Leadership DNA</h4><span class="m">The leadership instrument · LDNA, Leadership Drivers &amp; Natural Aptitudes</span></div><span class="r">7 dimensions</span></div>
-        <div class="insrow"><div><h4>Vulnerability register</h4><span class="m">The failure library</span></div><span class="r">150+ modes</span></div>
-      </div>
+    <div class="steps">
+      <div class="step rev d1"><span class="sn">1</span><h4>Take the free assessment</h4><p>Twelve questions put your business on a risk map in minutes.</p></div>
+      <div class="step rev d2"><span class="sn">2</span><h4>Run the full diagnostic</h4><p>Score eight areas and rank every risk by real impact.</p></div>
+      <div class="step rev d3"><span class="sn">3</span><h4>Get the plan</h4><p>A ninety-day sequence with a real owner on every line.</p></div>
+      <div class="step rev d4"><span class="sn">4</span><h4>Keep score</h4><p>A live dashboard and a quarterly re-check, so it keeps holding.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="sec statband">
+<!-- ============ BLOCK 6 — THE TWO TOOLS ============ -->
+<section class="sec wrap">
+  <div class="sec-head center rev">
+    <span class="eyebrow">The two tools</span>
+    <h2 class="h2">Diagnose the business. <span class="grad-text">Develop the leaders inside it.</span></h2>
+  </div>
+  <div class="tools">
+    <div class="tool rev d1">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#fff" stroke-width="1.7"/><path d="M3 9h18M8 4v16" stroke="#fff" stroke-width="1.7"/><path d="M11 13l2 2 4-4" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>Business Assessment</h3>
+      <p>Maps how the company is built across eight areas and ranks what breaks first. Full report, free to start.</p>
+      <a href="assessment/" class="tlink">See the Business Assessment <span class="arw">→</span></a>
+    </div>
+    <div class="tool ldna rev d2">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="#fff" stroke-width="1.7"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+      <h3>Leadership DNA</h3>
+      <span class="dev">Developmental</span>
+      <p>Shows how each leader is wired and what their role demands. Profile one leader or the whole team.</p>
+      <a href="leadership-dna/" class="tlink">See Leadership DNA <span class="arw">→</span></a>
+    </div>
+  </div>
+  <p class="adv-teaser rev d2">Bigger call on the table, a raise, a restructure, or a deal? <a href="advisory/">See advisory and diligence →</a></p>
+</section>
+
+<!-- ============ BLOCK 7 — WHO'S BEHIND IT ============ -->
+<section class="sec statband">
   <div class="wrap split">
     <div class="rev">
       <div class="about-portrait"><img src="assets/3FBD7EFA-B8A1-40F6-AF1A-22E397819820_1_105_c.jpeg" alt="Ryan Gus Roberts"/></div>
@@ -593,45 +380,36 @@
     <div class="rev d1">
       <span class="eyebrow">Who builds this</span>
       <h3 class="h3" style="margin-top:14px;">Built by an operator who learned systems the hard way.</h3>
-      <p class="lead" style="margin-top:16px;">Fighter pilot, then failure modeler, then operator. Ryan spent years where a missed failure mode was not a bad quarter, it was a catastrophe. He built and sold a defense firm on that discipline.</p>
-      <p style="font-family:var(--ui);font-size:16px;color:var(--ink-2);line-height:1.6;margin-top:14px;">Saunter turns the same discipline on the businesses and leaders scaling under load. The framework is the product, and a trained team runs it.</p>
-      <div style="margin-top:22px;"><a href="#" class="tlink">Read the full story <span class="arw">→</span></a></div>
+      <p class="lead" style="margin-top:16px;">Fighter pilot, then failure modeler, then operator. Ryan spent years where a missed failure mode was not a bad quarter, it was a catastrophe.</p>
+      <p style="font-family:var(--ui);font-size:16px;color:var(--ink-2);line-height:1.6;margin-top:14px;">He built and sold a defense firm on that discipline, and turns the same rigor on companies scaling under load.</p>
+      <div style="margin-top:22px;"><a href="about/" class="tlink">Read the full story <span class="arw">→</span></a></div>
     </div>
   </div>
 </section>
 
-<!-- ================= CLOSING ================= -->
-<!-- ================= HOW WE SCOPE (flagship anchor + honest downsell) ================= -->
-<section class="sec wrap">
-  <div class="rev" style="border:1px solid var(--line);background:var(--card);border-radius:26px;padding:clamp(30px,4.6vw,56px);box-shadow:var(--shadow);">
-    <span class="eyebrow">How we scope</span>
-    <h3 class="h3" style="margin-top:12px;max-width:30ch;">The complete answer is the whole business and its leaders together. <span class="grad-text">But the score decides what you need, not the invoice.</span></h3>
-    <p class="lead" style="margin-top:14px;max-width:64ch;">The full assessment plus three to six months of advisory is the recommended engagement. If the diagnostic shows the real constraint is narrower, just the leadership team, or just the operating structure, we scope to that and say so. You never buy more than the evidence calls for, and the free front doors stay open either way.</p>
-  </div>
-</section>
-
+<!-- ============ BLOCK 8 — START FREE ============ -->
 <section id="start" class="sec close">
   <div class="wrap" style="position:relative;z-index:2;text-align:center;">
     <div class="sec-head center rev">
       <span class="eyebrow" style="color:#F0D9AE;">Start where you are</span>
       <h2 class="h2">Two ways in. <span class="grad-text">Both are free.</span></h2>
-      <p class="lead" style="color:#C4CEDE;margin-left:auto;margin-right:auto;">Neither needs a sales call. Take the evaluation, get the full report, and decide what a full engagement is worth from there.</p>
+      <p class="lead" style="color:#C4CEDE;margin-left:auto;margin-right:auto;">Neither needs a sales call. Take the assessment, get the full report, and decide what a full engagement is worth from there.</p>
     </div>
     <div class="doors rev d1" style="text-align:left;">
       <div class="door">
         <span class="dk">Start with the business</span>
-        <h3>What to fix first</h3>
-        <p>Twelve questions on the whole business. In under eight minutes you get your risk map and the single thing to fix first, not a list of fifty.</p>
-        <a href="#" class="btn btn-grad" style="align-self:flex-start;">Take the evaluation <span class="arw">→</span></a>
+        <h3>Free Business Assessment</h3>
+        <p>Twelve questions. In under 8 minutes you get your risk map and the single thing to fix first.</p>
+        <a href="assessment/" class="btn btn-grad" style="align-self:flex-start;">Free Business Assessment <span class="arw">→</span></a>
       </div>
       <div class="door">
         <span class="dk">Start with a leader</span>
-        <h3>Leadership DNA</h3>
-        <p>Profile one leader across seven dimensions: how they are wired, what the role demands, and the cost of the gap. Full profile, nothing held back.</p>
-        <a href="#" class="btn btn-white" style="align-self:flex-start;">Get your profile <span class="arw">→</span></a>
+        <h3>Free Leadership DNA</h3>
+        <p>Profile one leader across seven dimensions: how they are wired and what the role demands.</p>
+        <a href="leadership-dna/" class="btn btn-white" style="align-self:flex-start;">Free Leadership DNA <span class="arw">→</span></a>
       </div>
     </div>
-    <p style="font-family:var(--ui);font-size:15px;color:#8A99B4;margin-top:30px;" class="rev d2">Ready for the full picture? <a href="#" style="color:#fff;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px;">Book a thirty-minute diagnostic call</a></p>
+    <p style="font-family:var(--ui);font-size:15px;color:#8A99B4;margin-top:30px;" class="rev d2">Ready for the full picture? <a href="advisory/" style="color:#fff;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px;">Book a thirty-minute diagnostic call</a></p>
   </div>
 </section>
 
@@ -643,16 +421,19 @@
         <p class="foot-tag">Diagnose the business. Develop the leaders inside it.</p>
         <p>We measure how your business is built and how your leaders operate, then tell you the one thing to fix first.</p>
       </div>
-      <div class="foot-col"><h5>Diagnose</h5><a href="assessment/">The Assessment</a><a href="#start">What to fix first</a><a href="leadership-dna/">Leadership DNA</a></div>
-      <div class="foot-col"><h5>Firm</h5><a href="method/">How it works</a><a href="consulting/">For Consultants</a><a href="about/">About</a></div>
-      <div class="foot-col"><h5>Start</h5><a href="#start">Free assessment</a><a href="leadership-dna/">Leadership DNA</a><a href="consulting/">Book a call</a></div>
+      <div class="foot-col"><h5>Diagnose</h5><a href="assessment/">Business Assessment</a><a href="leadership-dna/">Leadership DNA</a><a href="results/">Results</a></div>
+      <div class="foot-col"><h5>Firm</h5><a href="method/">How it works</a><a href="advisory/">Advisory</a><a href="consulting/">For Consultants</a><a href="about/">About</a></div>
+      <div class="foot-col"><h5>Start</h5><a href="assessment/">Free Business Assessment</a><a href="leadership-dna/">Free Leadership DNA</a><a href="advisory/">Book a call</a></div>
     </div>
+    <p class="foot-license">Business Assessment and Leadership DNA are proprietary instruments operated under license by The Saunter Group, LLC.</p>
     <div class="foot-bot">
       <span>© 2026 The Saunter Group, LLC · Sheridan, Wyoming · info@thesauntergroup.com</span>
       <span>Preview build</span>
     </div>
   </div>
 </footer>
+
+<div class="mcta"><a href="#start" class="btn btn-grad">Start free <span class="arw">→</span></a></div>
 
 <script>
   var tog=document.querySelector('.nav-tog'),links=document.getElementById('navlinks');
@@ -662,8 +443,6 @@
   var sc=function(){nav.classList.toggle('scrolled',scrollY>8);};sc();addEventListener('scroll',sc,{passive:true});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
-  var bio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.df').forEach(function(f,i){setTimeout(function(){f.style.width=f.getAttribute('data-w')+'%';},140+i*80);});bio.unobserve(e.target);}});},{threshold:.4});
-  document.querySelectorAll('[data-fig]').forEach(function(el){bio.observe(el);});
 </script>
 </body>
 </html>
