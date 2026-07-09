@@ -13,8 +13,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 <style>
+  /* Coral dialed back so the warm accent reads less "orange" (scoped to this page).
+     Same gradient stops/positions as the rest of the site; only the coral endpoint moves. */
+  :root{
+    --coral:#BD5236;        /* was #D5623C — deeper terracotta, hue pulled off orange */
+    --coral-soft:#F4DDCE;   /* was #F6D9CB */
+    --grad:linear-gradient(103deg,#C6893B 0%,#E2A950 52%,#BD5236 120%);
+    --grad-warm:linear-gradient(103deg,#E2A950,#BD5236);
+  }
+  .page-hero::before{
+    background:radial-gradient(820px 480px at 82% 4%, rgba(226,169,80,.24), transparent 60%),
+               radial-gradient(680px 560px at 4% 92%, rgba(189,82,54,.20), transparent 58%);
+  }
   .fd-mantra{display:inline-flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-top:22px;}
-  .fd-mantra span{font-family:var(--ui);font-weight:600;font-size:13px;color:#F0D9AE;background:rgba(226,169,80,.12);border:1px solid rgba(226,169,80,.34);padding:8px 14px;border-radius:999px;}
+  /* solid gold pill + navy text so the mantra is legible regardless of what paints behind it */
+  .fd-mantra span{font-family:var(--ui);font-weight:700;font-size:13px;color:#15233D;background:#F0D9AE;border:1px solid #E4C68A;padding:8px 14px;border-radius:999px;}
   .fd-path{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:40px;counter-reset:st;}
   .fd-stage{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 15px;box-shadow:var(--shadow);position:relative;}
   .fd-stage .n{font-family:var(--disp);font-weight:800;font-size:13px;color:var(--brass);letter-spacing:.04em;}
