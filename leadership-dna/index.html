@@ -66,6 +66,8 @@
   .rv-tg td.ov{background:rgba(201,79,46,.13);color:#C94F2E;font-weight:600;}
   .rv-tg td.em{background:transparent;}
   @media(max-width:560px){.rv-dim{grid-template-columns:96px 1fr 38px;gap:10px}.rv-ai-grid{grid-template-columns:1fr 1fr}.rv-tg td{font-size:9.5px;padding:8px 2px}.rv-tg td.self span{display:none}}
+  .m-fallback{display:none;}
+  @media(max-width:640px){.fieldmap-svg{display:none;}.fieldmap-list{display:block;}.rv-body{padding:18px;}.rv-tg{border-spacing:3px;}.mini-grid{grid-template-columns:1fr 1fr!important;gap:12px;}}
   .mcta{display:none;}
   @media(max-width:640px){.mcta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:200;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(12,26,48,.94);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.14);}.mcta a{width:100%;justify-content:center;}body{padding-bottom:76px;}}
 </style>
@@ -183,7 +185,7 @@
 
         <!-- FIELD MAP -->
         <div class="rv-panel on" data-panel="field">
-          <svg viewBox="0 0 660 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;" role="img" aria-label="Sample team value-stream field map">
+          <svg class="fieldmap-svg" viewBox="0 0 660 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;" role="img" aria-label="Sample team value-stream field map">
             <defs><marker id="ld-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8791A6"/></marker></defs>
             <g font-family="'Inter', Helvetica, sans-serif" font-weight="800" text-anchor="middle">
               <text x="170" y="26" font-size="14" fill="#B37B2A">Vision</text>
@@ -228,6 +230,15 @@
           <div class="rv-legend">
             <span><i style="width:9px;height:9px;border-radius:50%;background:#0C1A30;display:inline-block;"></i>Natural position</span>
             <span><i style="width:9px;height:9px;border:1.6px solid #B37B2A;display:inline-block;transform:rotate(45deg);"></i>Where the role pulls them</span>
+          </div>
+          <div class="m-fallback fieldmap-list">
+            <p style="font-family:var(--ui);font-size:13px;color:var(--ink-2);line-height:1.5;margin:0 0 14px;">The field map plots each leader across the value stream, from Vision (strategy) to Flow (operations) to Delivery (execution), and from Structured to Adaptive. On a phone, here is the same sample team as a list:</p>
+            <div class="rv-person"><div class="av">KP</div><div><h5>Strategist</h5><p>Vision · structured</p></div></div>
+            <div class="rv-person"><div class="av">AC</div><div><h5>Designer</h5><p>Flow · structured, role pulling toward Adaptive</p></div></div>
+            <div class="rv-person"><div class="av">MR</div><div><h5>Pathfinder</h5><p>Flow · adaptive</p></div></div>
+            <div class="rv-person"><div class="av">SD</div><div><h5>Adventurer</h5><p>Vision · adaptive</p></div></div>
+            <div class="rv-person" style="margin-bottom:0;"><div class="av">JL</div><div><h5>Catalyst</h5><p>Vision · adaptive</p></div></div>
+            <p style="font-family:var(--ui);font-size:12px;color:var(--ink-3);line-height:1.5;margin:14px 0 0;">The full positional map, including where each role pulls a leader off their natural spot, is best viewed on a larger screen.</p>
           </div>
         </div>
 
