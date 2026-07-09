@@ -25,6 +25,13 @@
   .ami-gate{font-family:var(--ui);font-weight:700;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:#8A5A12;background:rgba(226,169,80,.18);border:1px solid rgba(226,169,80,.55);padding:3px 9px;border-radius:999px;}
   .ami-txt p{font-family:var(--ui);font-size:13.5px;color:var(--ink-2);line-height:1.5;margin:5px 0 0;}
   @media(max-width:520px){.ami-row{grid-template-columns:84px 1fr}.ami-band b{font-size:16px}}
+  .mcta{display:none;}
+  @media(max-width:640px){
+    .mcta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:200;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(12,26,48,.94);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.14);}
+    .mcta a{width:100%;justify-content:center;}
+    body{padding-bottom:76px;}
+    .mini-grid{grid-template-columns:1fr 1fr!important;gap:12px;}
+  }
 </style>
 </head>
 <body>
@@ -37,9 +44,9 @@
       <a href="../assessment/" style="color:var(--ink);font-weight:600;">The Assessment</a>
       <a href="../leadership-dna/">Leadership DNA</a>
       <a href="../method/">How it works</a>
-      <a href="../consulting/">For Consultants</a>
       <a href="../about/">About</a>
-      <a href="../index.html#start" class="nav-cta">Get your free diagnostic</a>
+      <a href="../consulting/">For Consultants</a>
+      <a href="../index.html#start" class="nav-cta">Start free</a>
     </div>
   </div>
 </nav>
@@ -47,11 +54,11 @@
 <section class="page-hero">
   <div class="page-hero-in">
     <span class="crumb rev">Failure analysis for your business</span>
-    <h1 class="display h1 rev d1">Three structural leaks are draining your margin. <span class="grad-text">We name them, and price them.</span></h1>
+    <h1 class="display h1 rev d1">We find where your margin is leaking, <span class="grad-text">name each leak, and price it.</span></h1>
     <p class="lead rev d2">The Business Assessment is a thirty-day failure analysis of your whole company across eight areas. It finds where money is leaking, ranks the leaks by what each is costing you per quarter, and hands you the order to seal them.</p>
     <div class="hero-cta rev d3">
-      <a href="../index.html#start" class="btn btn-grad">Start with the free evaluation <span class="arw">→</span></a>
-      <a href="../consulting/" class="btn btn-ghost on-dark">Talk to us</a>
+      <a href="../index.html#start" class="btn btn-grad">Start the free assessment <span class="arw">→</span></a>
+      <a href="../advisory/" class="btn btn-ghost on-dark">Talk to us</a>
     </div>
   </div>
 </section>
@@ -97,8 +104,8 @@
 <section class="sec wrap">
   <div class="sec-head rev">
     <span class="eyebrow">What your score means</span>
-    <h2 class="h2">The AMI is not a grade. <span class="grad-text">It is a location.</span></h2>
-    <p class="lead" style="margin-top:16px;max-width:64ch;">Your eight domain scores roll into one Architecture Maturity Index from 0 to 100, reported as a band and set by your weakest critical domain, not your average. Here is what each band means, and the two gates that decide when you can raise and when you can scale.</p>
+    <h2 class="h2">Your readiness score is not a grade. <span class="grad-text">It is a location.</span></h2>
+    <p class="lead" style="margin-top:16px;max-width:64ch;">Your eight domain scores roll into one overall readiness score from 0 to 100, reported as a band and set by your weakest critical domain, not your average. Here is what each band means, and the two gates that decide when you can raise and when you can scale.</p>
   </div>
   <div class="ami rev d1" style="margin-top:34px;">
     <div class="ami-row">
@@ -142,8 +149,8 @@
       <div class="imgslot">
         <div class="in">
           <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="#E2A950" stroke-width="1.6"/><path d="M7 20h10M6 12l3-3 3 2 4-5" stroke="#E2A950" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="t">Live dashboard, porting in progress</div>
-          <div class="d">The interactive AMI dashboard from your original BAIC (Business Architecture &amp; Intelligence Cycle) page will render right here, no screenshot needed.</div>
+          <div class="t">Your live readiness dashboard</div>
+          <div class="d">A hosted scoreboard that tracks each area's readiness as you execute the ninety-day plan, so the margin you recover stays recovered.</div>
         </div>
       </div>
     </div>
@@ -163,6 +170,22 @@
   </div>
 </section>
 
+<!-- REAL CLIENT RESULTS (folded in from the retired Results page) -->
+<section class="sec statband">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <span class="eyebrow">More real client results</span>
+      <h2 class="h2">When operators can finally see the whole system, <span class="grad-text">the numbers move.</span></h2>
+    </div>
+    <div class="result-grid" style="margin-top:40px;">
+      <div class="result rev d1"><b>+24%</b><p>net revenue, from a four-point gain in financial-controls readiness that required an improved financial model and clearer leadership visibility.</p><span class="src">Professional services company</span></div>
+      <div class="result rev d2"><b>20%+</b><p>profit-margin lift after identifying a founder bottleneck and realigning decision rights across the leadership team, bringing financial discipline to customer delivery.</p><span class="src">Services company</span></div>
+      <div class="result rev d3"><b>$7M</b><p>of expected-loss exposure retired in a single 90-day cycle, nearly a third of the company's total, from $23.9M down to $16.9M.</p><span class="src">Performance footwear company</span></div>
+    </div>
+    <p class="rev" style="font-family:var(--ui);font-size:13.5px;color:var(--ink-3);margin-top:22px;line-height:1.5;">Figures are from real client engagements, documented and anonymized by industry. The $163K return-rate fix above is one of these.</p>
+  </div>
+</section>
+
 <!-- HOW WE SCOPE (flagship anchor + honest downsell) -->
 <section class="sec wrap">
   <div class="rev" style="border:1px solid var(--line);background:var(--card);border-radius:26px;padding:clamp(30px,4.4vw,52px);box-shadow:var(--shadow);">
@@ -172,16 +195,30 @@
   </div>
 </section>
 
+<!-- WHY ACT NOW (1 in 2 + cost of waiting) -->
+<section class="sec wrap">
+  <div class="sec-head rev">
+    <span class="eyebrow">Why act now</span>
+    <h2 class="h2">Every quarter you can't name it, <span class="grad-text">it keeps billing you.</span></h2>
+    <p class="lead" style="margin-top:16px;max-width:66ch;">1 in 2 new U.S. employer businesses do not survive five years (BLS/SBA). Most fail from a load-bearing function quietly weakening, not one dramatic event. Rough math, before you ever hire us, on what these problems quietly cost a company your size while they stay unnamed.</p>
+  </div>
+  <div class="result-grid">
+    <div class="result rev d1"><b>1.5&ndash;2x</b><p>salary to replace one misfit executive, on top of the months of momentum lost around the empty seat.</p><span class="src">Source: SHRM</span></div>
+    <div class="result rev d2"><b>1&ndash;2 qtrs</b><p>of momentum a $5M company typically loses to a single leadership-team misalignment nobody names.</p><span class="src">A stuck leadership team</span></div>
+    <div class="result rev d3"><b>Every qtr</b><p>a broken domain leaks margin, and it compounds, right up until someone finally puts a number on it.</p><span class="src">One unfixed structural leak</span></div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="sec close">
   <div class="wrap" style="position:relative;z-index:2;text-align:center;">
     <div class="sec-head center rev">
       <span class="crumb">Start free</span>
-      <h2 class="h2" style="margin-top:14px;">Find your first fix in <span class="grad-text">under eight minutes.</span></h2>
-      <p class="lead" style="color:#C4CEDE;margin:18px auto 0;">Take the free evaluation, get your risk map, and decide what a full assessment is worth from there. No sales call.</p>
+      <h2 class="h2" style="margin-top:14px;">Find your first fix in <span class="grad-text">under 8 minutes.</span></h2>
+      <p class="lead" style="color:#C4CEDE;margin:18px auto 0;">Take the free assessment, get your risk map, and decide what a full assessment is worth from there. No sales call.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
-        <a href="../index.html#start" class="btn btn-grad">Take the free evaluation <span class="arw">→</span></a>
-        <a href="../consulting/" class="btn btn-ghost on-dark">Book a diagnostic call</a>
+        <a href="../index.html#start" class="btn btn-grad">Start the free assessment <span class="arw">→</span></a>
+        <a href="../advisory/" class="btn btn-ghost on-dark">Book a diagnostic call</a>
       </div>
     </div>
   </div>
@@ -195,16 +232,19 @@
         <p class="foot-tag">Diagnose the business. Develop the leaders inside it.</p>
         <p>We measure how your business is built and how your leaders operate, then tell you the one thing to fix first.</p>
       </div>
-      <div class="foot-col"><h5>Diagnose</h5><a href="../assessment/">The Assessment</a><a href="../index.html#start">What to fix first</a><a href="../leadership-dna/">Leadership DNA</a></div>
-      <div class="foot-col"><h5>Firm</h5><a href="../method/">How it works</a><a href="../consulting/">For Consultants</a><a href="../about/">About</a></div>
-      <div class="foot-col"><h5>Start</h5><a href="../index.html#start">Free assessment</a><a href="../leadership-dna/">Leadership DNA</a><a href="../consulting/">Book a call</a></div>
+      <div class="foot-col"><h5>Diagnose</h5><a href="../assessment/">Business Assessment</a><a href="../leadership-dna/">Leadership DNA</a></div>
+      <div class="foot-col"><h5>Firm</h5><a href="../method/">How it works</a><a href="../advisory/">Advisory</a><a href="../consulting/">For Consultants</a><a href="../about/">About</a></div>
+      <div class="foot-col"><h5>Start</h5><a href="../index.html#start">Free Business Assessment</a><a href="../leadership-dna/">Free Leadership DNA</a><a href="../advisory/">Book a call</a></div>
     </div>
+    <p style="margin-top:14px;font-family:var(--ui);font-size:12px;color:#5f6d86;line-height:1.5;">Business Assessment and Leadership DNA are proprietary instruments operated under license by The Saunter Group, LLC.</p>
     <div class="foot-bot">
       <span>© 2026 The Saunter Group, LLC · Sheridan, Wyoming · info@thesauntergroup.com</span>
       <span>Preview build</span>
     </div>
   </div>
 </footer>
+
+<div class="mcta"><a href="../index.html#start" class="btn btn-grad">Start free <span class="arw">→</span></a></div>
 
 <script>
   var tog=document.querySelector('.nav-tog'),links=document.getElementById('navlinks');
