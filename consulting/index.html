@@ -15,6 +15,13 @@
 <style>
 .mcta{display:none;}
 @media(max-width:640px){.mcta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:200;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(12,26,48,.94);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.14);}.mcta a{width:100%;justify-content:center;}body{padding-bottom:76px;}}
+.m-fallback{display:none;}
+@media(max-width:640px){
+  /* card grids that force 3-4 columns inline collapse to a single column */
+  .mini-grid{grid-template-columns:1fr !important;}
+  /* AMI bar chart tightens its label column so bars stay legible at phone width */
+  .figpanel .drow{grid-template-columns:88px 1fr 34px;gap:10px;}
+}
 </style>
 </head>
 <body>
