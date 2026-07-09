@@ -15,6 +15,12 @@
 <style>
   .mcta{display:none;}
   @media(max-width:640px){.mcta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:200;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(12,26,48,.94);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.14);}.mcta a{width:100%;justify-content:center;}body{padding-bottom:76px;}}
+  .bio-more{display:none;}
+  @media(max-width:640px){
+    .person .bio.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+    .person .bio.clamp.expanded{-webkit-line-clamp:unset;overflow:visible;}
+    .bio-more{display:inline-block;margin-top:8px;font-family:var(--ui);font-weight:600;font-size:13.5px;color:var(--brass);background:none;border:0;padding:0;cursor:pointer;}
+  }
 </style>
 </head>
 <body>
@@ -174,6 +180,13 @@
   var nav=document.getElementById('nav');var sc=function(){nav.classList.toggle('scrolled',scrollY>8);};sc();addEventListener('scroll',sc,{passive:true});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
+  document.querySelectorAll('.person .bio').forEach(function(b){
+    b.classList.add('clamp');
+    var btn=document.createElement('button');
+    btn.className='bio-more';btn.type='button';btn.textContent='Read more';
+    btn.addEventListener('click',function(){var ex=b.classList.toggle('expanded');btn.textContent=ex?'Read less':'Read more';});
+    b.parentNode.insertBefore(btn,b.nextSibling);
+  });
 </script>
 </body>
 </html>
