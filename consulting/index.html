@@ -22,6 +22,9 @@
   /* AMI bar chart tightens its label column so bars stay legible at phone width */
   .figpanel .drow{grid-template-columns:88px 1fr 34px;gap:10px;}
 }
+.logowall{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:center;margin-top:26px;}
+.logowall img{width:auto;filter:grayscale(1) brightness(0.55);opacity:.6;transition:filter .22s ease,opacity .22s ease;}
+.logowall img:hover{filter:grayscale(0) brightness(1);opacity:1;}
 </style>
 </head>
 <body>
@@ -246,18 +249,18 @@
       </div>
 
       <p style="font-family:var(--ui);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);text-align:center;margin:52px 0 0;">Where Vertical Motion's coaching team has led</p>
-      <div style="display:flex;flex-wrap:wrap;gap:26px 36px;align-items:center;justify-content:center;margin-top:26px;">
-        <img src="../assets/logos/disney.svg" alt="Disney" style="height:30px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/nfl.svg" alt="NFL" style="height:30px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/ncaa.svg" alt="NCAA" style="height:30px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/accenture.svg" alt="Accenture" style="height:26px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/uniqlo.svg" alt="Uniqlo" style="height:34px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/skechers.svg" alt="Skechers" style="height:24px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/llbean.svg" alt="L.L.Bean" style="height:30px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/usaf.svg" alt="U.S. Air Force" style="height:30px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/nationwide.svg" alt="Nationwide" style="height:26px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/empower.svg" alt="Empower" style="height:24px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
-        <img src="../assets/logos/great-american.svg" alt="Great American" style="height:30px;width:auto;filter:grayscale(1) brightness(0);opacity:.42;"/>
+      <div class="logowall">
+        <img src="../assets/logos/disney.svg" alt="Disney" style="height:30px;"/>
+        <img src="../assets/logos/nfl.svg" alt="NFL" style="height:30px;"/>
+        <img src="../assets/logos/ncaa.svg" alt="NCAA" style="height:32px;"/>
+        <img src="../assets/logos/accenture.svg" alt="Accenture" style="height:24px;"/>
+        <img src="../assets/logos/uniqlo.svg" alt="Uniqlo" style="height:32px;"/>
+        <img src="../assets/logos/skechers.svg" alt="Skechers" style="height:22px;"/>
+        <img src="../assets/logos/llbean.svg" alt="L.L.Bean" style="height:28px;"/>
+        <img src="../assets/logos/usaf.svg" alt="U.S. Air Force" style="height:36px;"/>
+        <img src="../assets/logos/nationwide.svg" alt="Nationwide" style="height:24px;"/>
+        <img src="../assets/logos/empower.svg" alt="Empower" style="height:22px;"/>
+        <img src="../assets/logos/great-american.svg" alt="Great American" style="height:36px;"/>
       </div>
     </div>
 
